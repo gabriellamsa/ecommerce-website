@@ -38,7 +38,18 @@ export const Header = () => {
   const isHomePage = location.pathname === "/";
   return (
     <>
-      <header className="header px-12 py-3 bg-white-100 relative z-20">
+      <header
+        className={`header px-12 py-3 bg-white-100 relative z-20 ${
+          isHomePage && isScrolled ? "" : ""
+        }`}
+      >
+        {isHomePage && (
+          <div
+            className={`${
+              isScrolled ? "lg:bg-none" : "lg:bg-black"
+            } lg:h-full lg:absolute lg:top-0 lg:right-0 lg:w-1/3 lg:-z-10`}
+          ></div>
+        )}
         <nav className="p-2 flex justify-between items-center relative">
           {/* logo and menu */}
           <div className="flex items-center gap-14">
