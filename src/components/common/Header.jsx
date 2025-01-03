@@ -19,33 +19,33 @@ export const Header = () => {
   };
 
   // close menu if click outside close menu buttom
-  const closeMenuOutSide = (event) => {
+  const closeMenuOutside = (event) => {
     if (menuRef.current && !menuRef.current.contains(event.target)) {
       setIsOpen(false);
     }
   };
 
-  // handle scroll with animation
+  // handle scroll for header styling
   const handleScroll = () => {
     setIsScrolled(window.scrollY > 0);
   };
 
   useEffect(() => {
-    document.addEventListener("mousedown", closeMenuOutSide);
+    document.addEventListener("mousedown", closeMenuOutside);
     window.addEventListener("scroll", handleScroll);
 
     return () => {
-      document.removeEventListener("mousedown", closeMenuOutSide);
+      document.removeEventListener("mousedown", closeMenuOutside);
       window.removeEventListener("scroll", handleScroll);
     };
-  });
+  }, []);
 
   const isHomePage = location.pathname === "/";
   return (
     <>
       <header
         className={`header px-12 py-3 bg-white-100 relative z-20 ${
-          isHomePage && isScrolled ? "" : ""
+          isHomePage && isScrolled ? "scrolled" : ""
         }`}
       >
         {isHomePage && (
@@ -58,9 +58,7 @@ export const Header = () => {
         <nav className="p-2 flex justify-between items-center relative">
           {/* logo and menu */}
           <div className="flex items-center gap-14">
-            <div>
-              <img src={LogoImg} alt="LogoImg" className="h-7" />
-            </div>
+            <img src={LogoImg} alt="Logo" className="h-7" />
             <div className="hidden lg:flex items-center justify-between gap-8">
               {menulists.map((list) => (
                 <li key={list.id} className="uppercase list-none">
@@ -120,7 +118,7 @@ export const Header = () => {
 
               <button
                 onClick={toggleMenu}
-                className="lg:hidden w-10 h-10 flex justify-center items-center bg-black text:white focus:outline-none"
+                className="lg:hidden w-10 h-10 flex justify-center items-center bg-black text-white focus:outline-none"
               >
                 {isOpen ? (
                   <AiOutlineClose size={24} />
@@ -129,6 +127,20 @@ export const Header = () => {
                 )}
               </button>
             </div>
+          </div>
+
+          {/* responsive menu */}
+          <div
+            ref={menuRef}
+            className={`menu-container ${
+              isOpen ? "open" : "closed"
+            } lg:flex lg:items-center lg:w-auto w-full p-5 absolute right-0 top-full`}
+          >
+            {menulists.map((list) => (
+              <li key={list.id} className="uppercase list-none">
+                <CustomeNavLink href={list.path}>{list.link}</CustomeNavLink>
+              </li>
+            ))}
           </div>
         </nav>
       </header>
