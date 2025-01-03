@@ -1,7 +1,11 @@
-import React from "react";
+import { Header } from "./components/common/Header";
 
 const App = () => {
-  return <div>Ecommerce website</div>;
+  return (
+    <div>
+      <Header />
+    </div>
+  );
 };
 
 export default App;
