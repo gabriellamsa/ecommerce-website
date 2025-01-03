@@ -1,9 +1,41 @@
+import { useEffect, useState, useRef } from "react";
 import LogoImg from "../../assets/common/logo.png";
 import { menulists } from "../../assets/data/data";
-import { CustomeLink, Badges } from "./CustomComponents";
+import { CustomeNavLink, CustomeLink, Badges } from "./CustomComponents";
 import { IoCartOutline, IoSearchOutline } from "react-icons/io5";
 
 export const Header = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const menuRef = useRef(null);
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
+  // close menu if click outside close menu buttom
+  const closeMenuOutSide = (event) => {
+    if (menuRef.current && !menuRef.current.contains(event.target)) {
+      setIsOpen(false);
+    }
+  };
+
+  // handle scroll with animation
+  const handleScroll = () => {
+    setIsScrolled(window.scrollY > 0);
+  };
+
+  useEffect(() => {
+    document.addEventListener("mousedown", closeMenuOutSide);
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      document.removeEventListener("mousedown", closeMenuOutSide);
+      window.removeEventListener("scroll", handleScroll);
+    };
+  });
+
+  const isHomePage = location.pathname === "/";
   return (
     <>
       <header className="header px-12 py-3 bg-white-100 relative z-20">
@@ -16,7 +48,7 @@ export const Header = () => {
             <div className="hidden lg:flex items-center justify-between gap-8">
               {menulists.map((list) => (
                 <li key={list.id} className="uppercase list-none">
-                  <CustomeLink href={list.path}>{list.link}</CustomeLink>
+                  <CustomeNavLink href={list.path}>{list.link}</CustomeNavLink>
                 </li>
               ))}
             </div>

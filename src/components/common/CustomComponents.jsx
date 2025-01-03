@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { NavLink } from "react-router-dom";
 
-const CustomeLink = ({ href, className, children }) => {
+const CustomeNavLink = ({ href, className, children }) => {
   const linkStyles =
     "text-[15px] font-medium text-gray-600 cursor-pointer list-none";
   return (
@@ -18,6 +18,12 @@ const CustomeLink = ({ href, className, children }) => {
   );
 };
 
+const CustomeLink = ({ className, children }) => {
+  const linkStyles =
+    "text-[15px] font-medium text-gray-600 cursor-pointer list-none";
+  return <NavLink className={`${className} ${linkStyles}`}>{children}</NavLink>;
+};
+
 const Badges = ({ color, children }) => {
   return (
     <div
@@ -28,10 +34,15 @@ const Badges = ({ color, children }) => {
   );
 };
 
-export { CustomeLink, Badges };
+export { CustomeNavLink, CustomeLink, Badges };
+
+CustomeNavLink.propTypes = {
+  href: PropTypes.string.isRequired,
+  className: PropTypes.string,
+  children: PropTypes.node.isRequired,
+};
 
 CustomeLink.propTypes = {
-  href: PropTypes.string.isRequired,
   className: PropTypes.string,
   children: PropTypes.node.isRequired,
 };
