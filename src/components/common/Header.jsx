@@ -1,6 +1,6 @@
 import LogoImg from "../../assets/common/logo.png";
 import { menulists } from "../../assets/data/data";
-import { CustomeLink } from "./CustomComponents";
+import { CustomeLink, Badges } from "./CustomComponents";
 import { IoCartOutline, IoSearchOutline } from "react-icons/io5";
 
 export const Header = () => {
@@ -33,7 +33,14 @@ export const Header = () => {
             {/* icons */}
             <div className="icon flex items-center justify-center gap-6">
               <IoSearchOutline size={23} />
-              <IoCartOutline size={23} />
+
+              <div className="relative z-20">
+                <IoCartOutline size={23} />
+
+                <div className="absolute -top-2 -right-1.5">
+                  <Badges color="bg-primary-green">0</Badges>
+                </div>
+              </div>
             </div>
           </div>
         </nav>

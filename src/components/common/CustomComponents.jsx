@@ -17,10 +17,25 @@ const CustomeLink = ({ href, className, children }) => {
   );
 };
 
-export { CustomeLink };
+const Badges = ({ color, children }) => {
+  return (
+    <div
+      className={`w-[18px] h-[18px] ${color} rounded-full text-[12px] flex justify-center items-center text-white`}
+    >
+      {children}
+    </div>
+  );
+};
+
+export { CustomeLink, Badges };
 
 CustomeLink.propTypes = {
   href: PropTypes.isRequired,
   className: PropTypes.isRequired,
   children: PropTypes.isRequired,
+};
+
+Badges.propTypes = {
+  children: PropTypes.node.isRequired,
+  color: PropTypes.node.isRequired,
 };
