@@ -2,7 +2,12 @@ import { useEffect, useState, useRef } from "react";
 import LogoImg from "../../assets/common/logo.png";
 import { menulists } from "../../assets/data/data";
 import { CustomeNavLink, CustomeLink, Badges } from "./CustomComponents";
-import { IoCartOutline, IoSearchOutline } from "react-icons/io5";
+import {
+  IoCartOutline,
+  IoHeartOutline,
+  IoSearchOutline,
+} from "react-icons/io5";
+import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
 
 export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -68,22 +73,61 @@ export const Header = () => {
           {/* login and register buttom*/}
           <div className="flex items-center gap-8 ml-auto">
             <div className="uppercase hidden lg:block text-inherit relative z-20">
-              <CustomeLink>Login</CustomeLink>
-              <span className="">/</span>
-              <CustomeLink>Register</CustomeLink>
+              <CustomeLink
+                className={`${
+                  isScrolled || isHomePage ? "text-white" : "text-primary"
+                }`}
+              >
+                Login
+              </CustomeLink>
+              <span
+                className={`${
+                  isScrolled || isHomePage ? "text-white" : "text-primary"
+                }`}
+              >
+                /
+              </span>
+              <CustomeLink
+                className={`${
+                  isScrolled || isHomePage ? "text-white" : "text-primary"
+                }`}
+              >
+                Register
+              </CustomeLink>
             </div>
 
             {/* icons */}
-            <div className="icon flex items-center justify-center gap-6">
+            <div
+              className={`icon flex items-center justify-center gap-6 ${
+                isScrolled || isHomePage ? "text-white" : "text-primary"
+              }`}
+            >
               <IoSearchOutline size={23} />
 
               <div className="relative z-20">
-                <IoCartOutline size={23} />
-
+                <IoHeartOutline size={23} />
                 <div className="absolute -top-2 -right-1.5">
                   <Badges color="bg-primary-green">0</Badges>
                 </div>
               </div>
+
+              <div className="relative z-20">
+                <IoCartOutline size={23} />
+                <div className="absolute -top-2 -right-1.5">
+                  <Badges color="bg-primary-green">0</Badges>
+                </div>
+              </div>
+
+              <button
+                onClick={toggleMenu}
+                className="lg:hidden w-10 h-10 flex justify-center items-center bg-black text:white focus:outline-none"
+              >
+                {isOpen ? (
+                  <AiOutlineClose size={24} />
+                ) : (
+                  <AiOutlineMenu size={24} />
+                )}
+              </button>
             </div>
           </div>
         </nav>
