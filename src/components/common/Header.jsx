@@ -8,11 +8,13 @@ import {
   IoSearchOutline,
 } from "react-icons/io5";
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
+import { useLocation } from "react-router-dom";
 
 export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const menuRef = useRef(null);
+  const location = useLocation(null);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -73,21 +75,21 @@ export const Header = () => {
             <div className="uppercase hidden lg:block text-inherit relative z-20">
               <CustomeLink
                 className={`${
-                  isScrolled || isHomePage ? "text-white" : "text-primary"
+                  isScrolled || !isHomePage ? "text-primary" : "text-white"
                 }`}
               >
                 Login
               </CustomeLink>
               <span
                 className={`${
-                  isScrolled || isHomePage ? "text-white" : "text-primary"
+                  isScrolled || !isHomePage ? "text-primary" : "text-white"
                 }`}
               >
                 /
               </span>
               <CustomeLink
                 className={`${
-                  isScrolled || isHomePage ? "text-white" : "text-primary"
+                  isScrolled || !isHomePage ? "text-primary" : "text-white"
                 }`}
               >
                 Register
@@ -97,7 +99,7 @@ export const Header = () => {
             {/* icons */}
             <div
               className={`icon flex items-center justify-center gap-6 ${
-                isScrolled || isHomePage ? "text-white" : "text-primary"
+                isScrolled || !isHomePage ? "text-primary" : "text-white"
               }`}
             >
               <IoSearchOutline size={23} />
@@ -138,7 +140,9 @@ export const Header = () => {
           >
             {menulists.map((list) => (
               <li key={list.id} className="uppercase list-none">
-                <CustomeNavLink href={list.path}>{list.link}</CustomeNavLink>
+                <CustomeNavLink href={list.path} className="text-white">
+                  {list.link}
+                </CustomeNavLink>
               </li>
             ))}
           </div>
