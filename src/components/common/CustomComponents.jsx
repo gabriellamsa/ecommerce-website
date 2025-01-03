@@ -1,26 +1,27 @@
 import PropTypes from "prop-types";
+import { NavLink } from "react-router-dom";
 
 const CustomeLink = ({ href, className, children }) => {
   const linkStyles =
-    "text-[15px font-medium text-gray-600 cursor-pointer list-none";
+    "text-[15px] font-medium text-gray-600 cursor-pointer list-none";
   return (
-    <a
-      href=""
+    <NavLink
+      to={href}
       className={({ isActive }) =>
         isActive
-          ? `${className} ${linkStyles} text-peimary-green`
+          ? `${className} ${linkStyles} text-primary-green`
           : `${className} ${linkStyles}`
       }
     >
       {children}
-    </a>
+    </NavLink>
   );
 };
 
 const Badges = ({ color, children }) => {
   return (
     <div
-      className={`w-[18px] h-[18px] ${color} rounded-full text-[12px] flex justify-center items-center text-white`}
+      className={`w-[18px] h-[18px] rounded-full text-[12px] flex justify-center items-center ${color}`}
     >
       {children}
     </div>
@@ -30,12 +31,12 @@ const Badges = ({ color, children }) => {
 export { CustomeLink, Badges };
 
 CustomeLink.propTypes = {
-  href: PropTypes.isRequired,
-  className: PropTypes.isRequired,
-  children: PropTypes.isRequired,
+  href: PropTypes.string.isRequired,
+  className: PropTypes.string,
+  children: PropTypes.node.isRequired,
 };
 
 Badges.propTypes = {
   children: PropTypes.node.isRequired,
-  color: PropTypes.node.isRequired,
+  color: PropTypes.string.isRequired,
 };

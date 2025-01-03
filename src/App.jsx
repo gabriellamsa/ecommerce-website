@@ -1,10 +1,22 @@
-import { Header } from "./components/common/Header";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Home, Layout } from "./router";
 
 const App = () => {
   return (
-    <div>
-      <Header />
-    </div>
+    <>
+      <BrowserRouter>
+        <Routes>
+          <Route
+            path="*"
+            element={
+              <Layout>
+                <Home />
+              </Layout>
+            }
+          />
+        </Routes>
+      </BrowserRouter>
+    </>
   );
 };
 

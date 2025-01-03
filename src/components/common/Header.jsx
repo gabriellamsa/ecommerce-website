@@ -16,7 +16,7 @@ export const Header = () => {
             <div className="hidden lg:flex items-center justify-between gap-8">
               {menulists.map((list) => (
                 <li key={list.id} className="uppercase list-none">
-                  <a href={list.path}>{list.link}</a>
+                  <CustomeLink href={list.path}>{list.link}</CustomeLink>
                 </li>
               ))}
             </div>
@@ -25,7 +25,7 @@ export const Header = () => {
           {/* login and register buttom*/}
           <div className="flex items-center gap-8 ml-auto">
             <div className="uppercase hidden lg:block text-inherit relative z-20">
-              <CustomeLink href="/login">Login</CustomeLink>
+              <CustomeLink>Login</CustomeLink>
               <span className="">/</span>
               <CustomeLink>Register</CustomeLink>
             </div>
