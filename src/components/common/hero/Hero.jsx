@@ -1,5 +1,7 @@
+import { useState } from "react";
+import PropTypes from "prop-types";
 import { herolist } from "../../../assets/data/data";
-import { Title } from "../CustomComponents";
+import { BodyOne, Caption, Title } from "../CustomComponents";
 
 export const Hero = () => {
   return (
@@ -21,18 +23,80 @@ export const Hero = () => {
 };
 
 export const HeroItem = ({ title, description, price, color, image }) => {
-  return (
-    <>
-      <section className="content flex justify-between lg:px-16 h-[50vh] lh:h-[90vh] relative z-20">
-        <div className="left w-1/2 p-8 lg:p-32 lg:py-64">
-          <Title
-            level={1}
-            className="leading-none font-medium md-text-3xl lg:text-[70ox] lg:leading-snug"
-          >
-            {title}
-          </Title>
-        </div>
-      </section>
-    </>
+  const [selectedColor, setSelectedColor] = useState(color[0].value);
+  const [selectedPrice, setSelectedPrice] = useState(
+    price.find((p) => p.color === color[0].value)
   );
+
+  const handleColorClick = (newColor) => {
+    const newSelectedPrice = price.find((p) => p.color === newColor);
+    setSelectedColor(newColor);
+    setSelectedPrice(newSelectedPrice);
+  };
+
+  return (
+    <section className="content flex flex-col lg:flex-row justify-between items-center lg:px-16 h-[50vh] lg:h-[90vh] relative z-20">
+      {/* Left Content */}
+      <div className="left w-full lg:w-1/2 p-8 lg:p-16">
+        <Title
+          level={1}
+          className="leading-none font-medium text-3xl lg:text-6xl lg:leading-tight mb-6"
+        >
+          {title}
+        </Title>
+        <BodyOne>{description}</BodyOne>
+        <div className="flex items-start gap-8 my-5">
+          <div>
+            <Caption>Price</Caption>
+            <div className="mt-3">
+              <Title level={5}>${selectedPrice?.value.toFixed(2)}</Title>
+            </div>
+          </div>
+          <div>
+            <Caption>Color</Caption>
+            <div className="flex gap-2 mt-3">
+              {color.map((c) => (
+                <div
+                  key={c.value}
+                  onClick={() => handleColorClick(c.value)}
+                  className={`w-6 h-6 rounded-full border-2 cursor-pointer ${
+                    selectedColor === c.value
+                      ? "border-primary-green"
+                      : "border-gray-300"
+                  }`}
+                  style={{ backgroundColor: c.value }}
+                ></div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Right Content */}
+      <div className="right w-full lg:w-1/2 flex justify-center items-center">
+        <img
+          src={image}
+          alt={title}
+          className="object-cover h-[300px] lg:h-[400px]"
+        />
+      </div>
+    </section>
+  );
+};
+
+HeroItem.propTypes = {
+  title: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  price: PropTypes.arrayOf(
+    PropTypes.shape({
+      color: PropTypes.string.isRequired,
+      value: PropTypes.number.isRequired,
+    })
+  ).isRequired,
+  color: PropTypes.arrayOf(
+    PropTypes.shape({
+      value: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+  image: PropTypes.string.isRequired,
 };
