@@ -36,7 +36,6 @@ export const HeroItem = ({ title, description, price, color, image }) => {
 
   return (
     <section className="content flex flex-col lg:flex-row justify-between items-center lg:px-16 h-[50vh] lg:h-[90vh] relative z-20">
-      {/* Left Content */}
       <div className="left w-full lg:w-1/2 p-8 lg:p-16">
         <Title
           level={1}
@@ -70,9 +69,13 @@ export const HeroItem = ({ title, description, price, color, image }) => {
             </div>
           </div>
         </div>
+        <div className="flex items-center gap-8">
+          <button className="uppercase bg-black text-white py-3 px-6 rounded-md hover:bg-gray-800 transition">
+            View Details
+          </button>
+        </div>
       </div>
 
-      {/* Right Content */}
       <div className="right w-full lg:w-1/2 flex justify-center items-center">
         <img
           src={image}
