@@ -70,9 +70,7 @@ export const HeroItem = ({ title, description, price, color, image }) => {
           </div>
         </div>
         <div className="flex items-center gap-8">
-          <button className="uppercase bg-black text-white py-3 px-6 rounded-md hover:bg-gray-800 transition">
-            View Details
-          </button>
+          <button className="primary-btn">View Details</button>
         </div>
       </div>
 
