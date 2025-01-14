@@ -70,7 +70,8 @@ export const HeroItem = ({ title, description, price, color, image }) => {
           </div>
         </div>
         <div className="flex items-center gap-8">
-          <button className="primary-btn">View Details</button>
+          <button className="primary-btn uppercase">View Details</button>
+          <button className="secondary-btn uppercase">View Shop</button>
         </div>
       </div>
 
