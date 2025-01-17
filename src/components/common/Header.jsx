@@ -20,14 +20,12 @@ export const Header = () => {
     setIsOpen(!isOpen);
   };
 
-  // close menu if click outside close menu buttom
   const closeMenuOutside = (event) => {
     if (menuRef.current && !menuRef.current.contains(event.target)) {
       setIsOpen(false);
     }
   };
 
-  // handle scroll for header styling
   const handleScroll = () => {
     setIsScrolled(window.scrollY > 0);
   };
@@ -46,7 +44,7 @@ export const Header = () => {
   return (
     <>
       <header
-        className={`header px-12 py-3 bg-white-100 relative z-20 ${
+        className={`header px-12 py-3 bg-white-100 fixed top-0 left-0 w-full z-50 ${
           isHomePage && isScrolled ? "scrolled" : ""
         }`}
       >
@@ -70,7 +68,7 @@ export const Header = () => {
             </div>
           </div>
 
-          {/* login and register buttom*/}
+          {/* login and register buttons */}
           <div className="flex items-center gap-8 ml-auto">
             <div className="uppercase hidden lg:block text-inherit relative z-20">
               <CustomeLink

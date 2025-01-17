@@ -6,7 +6,7 @@ import { BodyOne, Caption, Title } from "../CustomComponents";
 export const Hero = () => {
   return (
     <div>
-      <section className="h-[90vh] mt-20 bg-white relative z-10">
+      <section className="h-[90vh] mt-[64px] bg-white relative z-10">
         {herolist.map((item) => (
           <HeroItem
             key={item.id}
@@ -35,7 +35,7 @@ export const HeroItem = ({ title, description, price, color, image }) => {
   };
 
   return (
-    <section className="content flex flex-col lg:flex-row justify-between items-center lg:px-16 h-[90vh] relative z-20">
+    <section className="lg:bg-white-100 content flex flex-col lg:flex-row justify-between items-center lg:px-16 h-[90vh] relative z-20">
       <div className="left w-full lg:w-1/2 p-8 lg:p-16">
         <Title
           level={1}
@@ -75,14 +75,14 @@ export const HeroItem = ({ title, description, price, color, image }) => {
         </div>
       </div>
 
-      <div className="right w-full lg:w-1/2 flex justify-center items-center">
+      <div className="right w-full lg:w-1/2 flex justify-center items-center bg-white p-5">
         <img
           src={image}
           alt=""
           className="h-[70vh] lg:h-[80vh] w-auto object-contain"
         />
       </div>
-      <div className="lg:h-full lg:absolute lg:top-0 lg:right-0 lg:w-1/3 lg:-z-10"></div>
+      <div className="lg:bg-black lg:h-full lg:absolute lg:top-0 lg:right-0 lg:w-1/3 lg:-z-10"></div>
     </section>
   );
 };
