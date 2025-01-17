@@ -2,21 +2,34 @@ import { useState } from "react";
 import PropTypes from "prop-types";
 import { herolist } from "../../../assets/data/data";
 import { BodyOne, Caption, Title } from "../CustomComponents";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 export const Hero = () => {
+  const settings = {
+    dots: true,
+    infinite: true,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: false,
+  };
+
   return (
     <div>
       <section className="h-[90vh] mt-[64px] bg-white relative z-10">
-        {herolist.map((item) => (
-          <HeroItem
-            key={item.id}
-            title={item.title}
-            description={item.description}
-            price={item.price}
-            color={item.color}
-            image={item.image}
-          />
-        ))}
+        <Slider {...settings}>
+          {herolist.map((item) => (
+            <HeroItem
+              key={item.id}
+              title={item.title}
+              description={item.description}
+              price={item.price}
+              color={item.color}
+              image={item.image}
+            />
+          ))}
+        </Slider>
       </section>
     </div>
   );
