@@ -11,11 +11,14 @@ function SampleNextArrow(props) {
   const { onClick } = props;
   return (
     <div
-      className="absolute top-1/2 right-8 transform -translate-y-1/2 cursor-pointer z-20"
+      className="absolute top-1/2 right-4 transform -translate-y-1/2 cursor-pointer z-20"
       onClick={onClick}
     >
       <button className="next">
-        <MdKeyboardArrowRight size={50} className="text-black" />
+        <MdKeyboardArrowRight
+          size={40}
+          className="text-black sm:text-gray-700"
+        />
       </button>
     </div>
   );
@@ -25,11 +28,14 @@ function SamplePrevArrow(props) {
   const { onClick } = props;
   return (
     <div
-      className="absolute top-1/2 left-8 transform -translate-y-1/2 cursor-pointer z-20"
+      className="absolute top-1/2 left-4 transform -translate-y-1/2 cursor-pointer z-20"
       onClick={onClick}
     >
       <button className="prev">
-        <MdKeyboardArrowLeft size={50} className="text-black" />
+        <MdKeyboardArrowLeft
+          size={40}
+          className="text-black sm:text-gray-700"
+        />
       </button>
     </div>
   );
@@ -41,13 +47,13 @@ export const Hero = () => {
     infinite: true,
     slidesToShow: 1,
     slidesToScroll: 1,
-    nextArrow: <SampleNextArrow />, // Setas customizadas para avançar
-    prevArrow: <SamplePrevArrow />, // Setas customizadas para voltar
+    nextArrow: <SampleNextArrow />,
+    prevArrow: <SamplePrevArrow />,
   };
 
   return (
     <div>
-      <section className="h-[90vh] mt-[64px] bg-white relative z-10">
+      <section className="h-auto sm:h-[75vh] mt-[64px] bg-white relative z-10">
         <Slider {...settings}>
           {herolist.map((item) => (
             <HeroItem
@@ -78,24 +84,28 @@ export const HeroItem = ({ title, description, price, color, image }) => {
   };
 
   return (
-    <section className="lg:bg-white-100 content flex flex-col lg:flex-row justify-between items-center lg:px-16 h-[90vh] relative z-20">
-      <div className="left w-full lg:w-1/2 p-8 lg:p-16">
+    <section className="lg:bg-white-100 content flex flex-col lg:flex-row justify-between items-center lg:px-16 px-6 sm:px-4 h-auto lg:h-[90vh] relative z-20">
+      <div className="left w-full lg:w-1/2 p-6 sm:p-4">
         <Title
           level={1}
-          className="leading-none font-medium text-3xl lg:text-6xl lg:leading-tight mb-6"
+          className="leading-none font-medium text-2xl sm:text-xl md:text-3xl lg:text-6xl lg:leading-tight mb-4"
         >
           {title}
         </Title>
-        <BodyOne>{description}</BodyOne>
-        <div className="flex items-start gap-8 my-5">
+        <BodyOne className="text-sm sm:text-xs lg:text-base">
+          {description}
+        </BodyOne>
+        <div className="flex flex-wrap items-start gap-4 lg:gap-8 my-5">
           <div>
-            <Caption>Price</Caption>
+            <Caption className="text-sm sm:text-xs">Price</Caption>
             <div className="mt-3">
-              <Title level={5}>${selectedPrice?.value.toFixed(2)}</Title>
+              <Title level={5} className="text-base sm:text-sm lg:text-lg">
+                ${selectedPrice?.value.toFixed(2)}
+              </Title>
             </div>
           </div>
           <div>
-            <Caption>Color</Caption>
+            <Caption className="text-sm sm:text-xs">Color</Caption>
             <div className="flex gap-2 mt-3">
               {color.map((c) => (
                 <div
@@ -112,9 +122,13 @@ export const HeroItem = ({ title, description, price, color, image }) => {
             </div>
           </div>
         </div>
-        <div className="flex items-center gap-8">
-          <button className="primary-btn uppercase">View Details</button>
-          <button className="secondary-btn uppercase">View Shop</button>
+        <div className="flex flex-wrap items-center gap-4 lg:gap-8">
+          <button className="primary-btn uppercase text-sm sm:text-xs">
+            View Details
+          </button>
+          <button className="secondary-btn uppercase text-sm sm:text-xs">
+            View Shop
+          </button>
         </div>
       </div>
 
@@ -122,7 +136,7 @@ export const HeroItem = ({ title, description, price, color, image }) => {
         <img
           src={image}
           alt=""
-          className="h-[70vh] lg:h-[80vh] w-auto object-contain"
+          className="h-[50vh] sm:h-[40vh] lg:h-[80vh] w-auto object-contain"
         />
       </div>
       <div className="lg:bg-black lg:h-full lg:absolute lg:top-0 lg:right-0 lg:w-1/3 lg:-z-10"></div>
