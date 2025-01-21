@@ -5,6 +5,35 @@ import { BodyOne, Caption, Title } from "../CustomComponents";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
+
+function SampleNextArrow(props) {
+  const { onClick } = props;
+  return (
+    <div
+      className="absolute top-1/2 right-8 transform -translate-y-1/2 cursor-pointer z-20"
+      onClick={onClick}
+    >
+      <button className="next">
+        <MdKeyboardArrowRight size={50} className="text-black" />
+      </button>
+    </div>
+  );
+}
+
+function SamplePrevArrow(props) {
+  const { onClick } = props;
+  return (
+    <div
+      className="absolute top-1/2 left-8 transform -translate-y-1/2 cursor-pointer z-20"
+      onClick={onClick}
+    >
+      <button className="prev">
+        <MdKeyboardArrowLeft size={50} className="text-black" />
+      </button>
+    </div>
+  );
+}
 
 export const Hero = () => {
   const settings = {
@@ -12,7 +41,8 @@ export const Hero = () => {
     infinite: true,
     slidesToShow: 1,
     slidesToScroll: 1,
-    arrows: false,
+    nextArrow: <SampleNextArrow />, // Setas customizadas para avançar
+    prevArrow: <SamplePrevArrow />, // Setas customizadas para voltar
   };
 
   return (
