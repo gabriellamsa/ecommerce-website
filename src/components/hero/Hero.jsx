@@ -1,7 +1,7 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
-import { herolist } from "../../../assets/data/data";
-import { BodyOne, Caption, Title } from "../CustomComponents";
+import { herolist } from "../../assets/data/data";
+import { BodyOne, Caption, Title } from "../common/CustomComponents";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
