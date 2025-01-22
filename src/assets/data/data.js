@@ -89,3 +89,25 @@ export const herolist = [
     ],
   },
 ];
+
+export const productlists = [
+  {
+    id: 1,
+    title: "Wooden single drawer",
+    description: "Bring style to your home with our Wooden Drawer. It has plenty of storage space and works with many types of decor. With a 10% discount, it's a great and affordable option for anyone who wants quality.",
+    images: [
+      { image: "../images/hero/product1-1.png" },
+      { image: "../images/hero/product1-3.png" },
+      { image: "../images/hero/product1-2.png" },
+    ],
+    discount: 10,
+    rating: 2.5,
+    featured: true,
+    price: [
+      { color: "red", value: 135.78 },
+      { color: "yellow", value: 185.27 },
+      { color: "green", value: 125.62 },
+    ],
+    color: [{ value: "red" }, { value: "yellow" }, { value: "green" }],
+  },
+];

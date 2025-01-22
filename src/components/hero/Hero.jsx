@@ -14,12 +14,10 @@ function SampleNextArrow(props) {
       className="absolute top-1/2 right-4 transform -translate-y-1/2 cursor-pointer z-20"
       onClick={onClick}
     >
-      <button className="next">
-        <MdKeyboardArrowRight
-          size={40}
-          className="text-black sm:text-gray-700"
-        />
-      </button>
+      <MdKeyboardArrowRight
+        size={40}
+        className="text-black sm:text-gray-700 hover:text-gray-500"
+      />
     </div>
   );
 }
@@ -31,12 +29,10 @@ function SamplePrevArrow(props) {
       className="absolute top-1/2 left-4 transform -translate-y-1/2 cursor-pointer z-20"
       onClick={onClick}
     >
-      <button className="prev">
-        <MdKeyboardArrowLeft
-          size={40}
-          className="text-black sm:text-gray-700"
-        />
-      </button>
+      <MdKeyboardArrowLeft
+        size={40}
+        className="text-black sm:text-gray-700 hover:text-gray-500"
+      />
     </div>
   );
 }
@@ -67,6 +63,7 @@ export const Hero = () => {
           ))}
         </Slider>
       </section>
+      <Banner />
     </div>
   );
 };
@@ -135,12 +132,46 @@ export const HeroItem = ({ title, description, price, color, image }) => {
       <div className="right w-full lg:w-1/2 flex justify-center items-center bg-white p-5">
         <img
           src={image}
-          alt=""
+          alt={title}
           className="h-[50vh] sm:h-[40vh] lg:h-[80vh] w-auto object-contain"
         />
       </div>
       <div className="lg:bg-black lg:h-full lg:absolute lg:top-0 lg:right-0 lg:w-1/3 lg:-z-10"></div>
     </section>
+  );
+};
+
+const Banner = () => {
+  return (
+    <div className="py-20 container flex flex-col lg:flex-row items-center gap-5">
+      <BannerCard
+        title="Wooden Water Bottles"
+        desc="UP TO 60% OFF"
+        cover="./images/hero/product1-1.png"
+      />
+      <BannerCard
+        title="Sale Offer"
+        desc="Grab it fast"
+        cover="./images/hero/product1-2.png"
+      />
+      <BannerCard
+        title="Trending"
+        desc="Explore now"
+        cover="./images/hero/product1-3.png"
+      />
+    </div>
+  );
+};
+
+const BannerCard = ({ title, desc, cover }) => {
+  return (
+    <div className="relative w-full h-full">
+      <img src={cover} alt={title} className="w-full h-auto" />
+      <div className="absolute bottom-0 p-8 bg-opacity-75 text-white w-full">
+        <Title level={2}>{title}</Title>
+        <BodyOne>{desc}</BodyOne>
+      </div>
+    </div>
   );
 };
 
