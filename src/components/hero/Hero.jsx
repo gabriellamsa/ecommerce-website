@@ -81,7 +81,7 @@ export const HeroItem = ({ title, description, price, color, image }) => {
   };
 
   return (
-    <section className="lg:bg-white-100 content flex flex-col lg:flex-row justify-between items-center lg:px-16 px-6 sm:px-4 h-auto lg:h-[90vh] relative z-20">
+    <section className="lg:bg-white-100 content flex flex-col lg:flex-row justify-between items-center lg:px-16 px-6 sm:px-4 h-auto lg:h-full relative z-20">
       <div className="left w-full lg:w-1/2 p-6 sm:p-4">
         <Title
           level={1}
@@ -170,6 +170,7 @@ const BannerCard = ({ title, desc, cover }) => {
       <div className="absolute bottom-0 p-8 bg-opacity-75 text-white w-full">
         <Title level={2}>{title}</Title>
         <BodyOne>{desc}</BodyOne>
+        <button className="secondary-btn flex justify-end">Shop Now</button>
       </div>
     </div>
   );
