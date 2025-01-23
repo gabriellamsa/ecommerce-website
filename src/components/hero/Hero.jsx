@@ -63,7 +63,7 @@ export const Hero = () => {
           ))}
         </Slider>
       </section>
-      <Banner />
+      <Banner className="mt-16 sm:mt-20 lg:mt-24" />
     </div>
   );
 };
@@ -141,24 +141,32 @@ export const HeroItem = ({ title, description, price, color, image }) => {
   );
 };
 
-const Banner = () => {
+const Banner = ({ className = "" }) => {
   return (
-    <div className="py-20 container flex flex-col lg:flex-row items-center gap-5">
-      <BannerCard
-        title="Wooden Water Bottles"
-        desc="UP TO 60% OFF"
-        cover="./images/hero/product1-1.png"
-      />
-      <BannerCard
-        title="Sale Offer"
-        desc="Grab it fast"
-        cover="./images/hero/product1-2.png"
-      />
-      <BannerCard
-        title="Trending"
-        desc="Explore now"
-        cover="./images/hero/product1-3.png"
-      />
+    <div
+      className={`py-20 container flex flex-col lg:flex-row items-center gap-5 ${className}`}
+    >
+      <div>
+        <BannerCard
+          title="Wooden Water Bottles"
+          desc="UP TO 60% OFF"
+          cover="./images/hero/product1-1.png"
+        />
+      </div>
+      <div className="flex justify-between flex-col gap-8">
+        <BannerCard
+          title="Sale Offer"
+          desc="Grab it fast"
+          cover="./images/hero/product1-2.png"
+          className={true}
+        />
+        <BannerCard
+          title="Trending"
+          desc="Explore now"
+          cover="./images/hero/product1-3.png"
+          className={true}
+        />
+      </div>
     </div>
   );
 };
@@ -170,7 +178,9 @@ const BannerCard = ({ title, desc, cover }) => {
       <div className="absolute bottom-0 p-8 bg-opacity-75 text-white w-full">
         <Title level={2}>{title}</Title>
         <BodyOne>{desc}</BodyOne>
-        <button className="secondary-btn flex justify-end">Shop Now</button>
+        <div className="w1-1/2 mt-5">
+          <button className="secondary-btn flex justify-end">Shop Now</button>
+        </div>
       </div>
     </div>
   );
