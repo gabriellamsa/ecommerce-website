@@ -7,32 +7,30 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 
-function SampleNextArrow(props) {
+function CustomNextArrow(props) {
   const { onClick } = props;
   return (
     <div
-      className="absolute top-1/2 right-4 transform -translate-y-1/2 cursor-pointer z-20"
+      className="absolute top-1/2 right-4 transform -translate-y-1/2 z-20 cursor-pointer"
       onClick={onClick}
     >
-      <MdKeyboardArrowRight
-        size={40}
-        className="text-black sm:text-gray-700 hover:text-gray-500"
-      />
+      <div className="w-10 h-10 bg-white border border-gray-300 rounded-full flex items-center justify-center shadow hover:bg-gray-100">
+        <MdKeyboardArrowRight size={24} className="text-gray-800" />
+      </div>
     </div>
   );
 }
 
-function SamplePrevArrow(props) {
+function CustomPrevArrow(props) {
   const { onClick } = props;
   return (
     <div
-      className="absolute top-1/2 left-4 transform -translate-y-1/2 cursor-pointer z-20"
+      className="absolute top-1/2 left-4 transform -translate-y-1/2 z-20 cursor-pointer"
       onClick={onClick}
     >
-      <MdKeyboardArrowLeft
-        size={40}
-        className="text-black sm:text-gray-700 hover:text-gray-500"
-      />
+      <div className="w-10 h-10 bg-white border border-gray-300 rounded-full flex items-center justify-center shadow hover:bg-gray-100">
+        <MdKeyboardArrowLeft size={24} className="text-gray-800" />
+      </div>
     </div>
   );
 }
@@ -43,8 +41,8 @@ export const Hero = () => {
     infinite: true,
     slidesToShow: 1,
     slidesToScroll: 1,
-    nextArrow: <SampleNextArrow />,
-    prevArrow: <SamplePrevArrow />,
+    nextArrow: <CustomNextArrow />,
+    prevArrow: <CustomPrevArrow />,
   };
 
   return (
