@@ -142,7 +142,7 @@ export const HeroItem = ({ title, description, price, color, image }) => {
 const Banner = ({ className = "" }) => {
   return (
     <div
-      className={`py-20 container flex flex-col lg:flex-row items-center gap-5 ${className}`}
+      className={`py-20 mx-auto max-w-6xl px-6 lg:px-12 flex flex-col lg:flex-row items-center gap-5 ${className}`}
     >
       <div>
         <BannerCard
@@ -151,34 +151,52 @@ const Banner = ({ className = "" }) => {
           cover="./images/hero/product1-1.png"
         />
       </div>
+
       <div className="flex justify-between flex-col gap-8">
         <BannerCard
-          title="Sale Offer"
-          desc="Grab it fast"
+          title="Totally Bamboo"
+          desc="UP TO 60% OFF"
           cover="./images/hero/product1-2.png"
-          className={true}
         />
         <BannerCard
-          title="Trending"
-          desc="Explore now"
+          title="Jumbo Tote Bag"
+          desc="UP TO 60% OFF"
           cover="./images/hero/product1-3.png"
-          className={true}
+          alignRight={true}
         />
       </div>
     </div>
   );
 };
 
-const BannerCard = ({ title, desc, cover }) => {
+const BannerCard = ({
+  title,
+  desc,
+  cover,
+  alignRight = false,
+  buttonInline = false,
+}) => {
   return (
-    <div className="relative w-full h-full">
-      <img src={cover} alt={title} className="w-full h-auto" />
-      <div className="absolute bottom-0 p-8 bg-opacity-75 text-white w-full">
-        <Title level={2}>{title}</Title>
-        <BodyOne>{desc}</BodyOne>
-        <div className="w1-1/2 mt-5">
-          <button className="secondary-btn flex justify-end">Shop Now</button>
+    <div className="relative w-full h-full rounded-lg">
+      <img src={cover} alt={title} className="w-full h-auto object-cover" />
+
+      <div
+        className={`absolute inset-0 flex flex-col ${
+          alignRight
+            ? "justify-end items-end text-right"
+            : "justify-end items-start"
+        } text-white p-6`}
+      >
+        <div
+          className={`mb-4 ${buttonInline ? "flex items-center gap-4" : ""}`}
+        >
+          <Title level={2} className="text-lg font-semibold sm:text-xl">
+            {title}
+          </Title>
+          <BodyOne className="text-sm sm:text-base">{desc}</BodyOne>
         </div>
+
+        <button className="secondary-btn flex justify-end">Shop Now</button>
       </div>
     </div>
   );
