@@ -94,11 +94,8 @@ export const productlists = [
   {
     id: 1,
     title: "Wooden single drawer",
-    description: "Bring style to your home with our Wooden Drawer. It has plenty of storage space and works with many types of decor. With a 10% discount, it's a great and affordable option for anyone who wants quality.",
     images: [
       { image: "../images/product/product1.png" },
-      { image: "../images/product/product1.3.png" },
-      { image: "../images/product/product1.2.png" },
     ],
     discount: 10,
     rating: 2.5,
@@ -116,8 +113,6 @@ export const productlists = [
     description: "",
     images: [
       { image: "../images/product/product2.png" },
-      { image: "../images/product/product1.3.png" },
-      { image: "../images/product/product1.2.png" },
     ],
     discount: 15,
     rating: 4.2,
@@ -135,8 +130,6 @@ export const productlists = [
     description: "",
     images: [
       { image: "../images/product/product3.png" },
-      { image: "../images/product/product1.2.png" },
-      { image: "../images/product/product1.1.png" },
     ],
     discount: 12,
     rating: 4.5,
@@ -154,8 +147,6 @@ export const productlists = [
     description: "",
     images: [
       { image: "../images/product/product4.png" },
-      { image: "../images/product/product1.1.png" },
-      { image: "../images/product/product1.2.png" },
     ],
     discount: 18,
     rating: 4.8,
@@ -177,8 +168,6 @@ export const productlists = [
     description: "",
     images: [
       { image: "../images/product/product5.png" },
-      { image: "../images/product/product1.3.png" },
-      { image: "../images/product/product1.2.png" },
     ],
     discount: 15,
     rating: 4.0,
@@ -195,8 +184,6 @@ export const productlists = [
     description: "",
     images: [
       { image: "../images/product/product6.png" },
-      { image: "../images/product/product1.2.png" },
-      { image: "../images/product/product1.1.png" },
     ],
     discount: 20,
     rating: 4.2,
@@ -215,8 +202,6 @@ export const productlists = [
     images: [
 
       { image: "../images/product/product7.png" },
-      { image: "../images/product/product1.3.png" },
-      { image: "../images/product/product1.1.png" },
     ],
     discount: 15,
     rating: 3.5,
@@ -233,11 +218,7 @@ export const productlists = [
     title: "Luxury Couch",
     description: "",
     images: [
-      {
-        image: "../images/product/product8.png",
-      },
-      { image: "../images/product/product1.2.png" },
-      { image: "../images/product/product1.3.png" },
+      { image: "../images/product/product8.png" },
     ],
     discount: 25,
     rating: 4.8,

@@ -8,6 +8,23 @@
   .container {
     @apply w-full px-8 lg:p-0 lg:w-3/4 m-auto;
   }
+
+  /* buttons */
+  .batch-icon {
+    @apply w-4 h-4;
+  }
+
+  .discount-btn {
+    @apply px-4 py-2 bg-primary text-white text-xs font-semibold;
+  }
+
+  .feature-btn {
+    @apply px-4 py-2 bg-primary-green text-white text-xs font-semibold;
+  }
+
+  .slider-btn {
+    @apply w-16 h-16 bg-primary text-white flex items-center justify-center;
+  }
 }
 
 .primary-btn {
@@ -138,4 +155,25 @@
     transform: translateY(0);
     opacity: 1;
   }
+}
+
+/* product */
+.product-btn {
+  padding: 5px 11px;
+  font-size: 12px;
+}
+.product .images {
+  position: relative;
+  overflow: hidden;
+}
+
+.product.card .overlay {
+  opacity: 0;
+  transition: transform 0.3s ease;
+  transform: translateY(100%);
+}
+
+.product.card:hover .overlay {
+  opacity: 1;
+  transform: translateY(0);
 }
