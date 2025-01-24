@@ -93,7 +93,7 @@ export const herolist = [
 export const productlists = [
   {
     id: 1,
-    title: "Wooden single drawer",
+    title: "Wooden Single Armchair",
     images: [
       { image: "../images/product/product1.png" },
     ],
@@ -181,6 +181,7 @@ export const productlists = [
   },
   {
     id: 6,
+    title: "Wooden Brush",
     description: "",
     images: [
       { image: "../images/product/product6.png" },
@@ -215,7 +216,7 @@ export const productlists = [
   },
   {
     id: 8,
-    title: "Luxury Couch",
+    title: "Luxury Armchair",
     description: "",
     images: [
       { image: "../images/product/product8.png" },

@@ -1,5 +1,7 @@
 import { IoMdHeart } from "react-icons/io";
 import { IoCart } from "react-icons/io5";
+import { NavLink } from "react-router-dom";
+import { BodyOne } from "../../components/common/CustomComponents";
 
 export const ProductCard = ({
   id,
@@ -23,7 +25,7 @@ export const ProductCard = ({
               key={index}
               src={cover?.image}
               alt={id}
-              className="w-full object-cover"
+              className="w-full h-full object-cover"
             />
           ))}
           <div className="flex justify-between w-full p-5 absolute top-0 left-0">
@@ -44,6 +46,28 @@ export const ProductCard = ({
             <button className="love-btn product-btn primary-btn">
               <IoMdHeart size={23} />
             </button>
+          </div>
+        </div>
+        <div className="details flex items-center flex-col bg-white pt-6">
+          <NavLink to={`/product-details/${id}`}>
+            <BodyOne>{title}</BodyOne>
+          </NavLink>
+          <div className="flex items-center gap-2 -mt-2 mb-2">{rating}</div>
+          <div className="flex items-center gap-3">
+            {price.slice(0, 1).map((priceItem, index) => (
+              <>
+                <BodyOne className="line-through" key={index}>
+                  ${priceItem.value}
+                </BodyOne>
+                <BodyOne className="text-primary-green">
+                  $
+                  {(
+                    priceItem.value -
+                    (priceItem.value * discount) / 100
+                  ).toFixed(2)}
+                </BodyOne>
+              </>
+            ))}
           </div>
         </div>
       </div>
