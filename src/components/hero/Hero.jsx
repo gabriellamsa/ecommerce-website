@@ -148,7 +148,7 @@ const Banner = ({ className = "" }) => {
         <BannerCard
           title="Wooden Water Bottles"
           desc="UP TO 60% OFF"
-          cover="./images/hero/product1-1.png"
+          cover="../../images/hero/product1-1.png"
         />
       </div>
 
@@ -156,12 +156,12 @@ const Banner = ({ className = "" }) => {
         <BannerCard
           title="Totally Bamboo"
           desc="UP TO 60% OFF"
-          cover="./images/hero/product1-2.png"
+          cover="../../images/hero/product1-2.png"
         />
         <BannerCard
           title="Jumbo Tote Bag"
           desc="UP TO 60% OFF"
-          cover="./images/hero/product1-3.png"
+          cover="../../images/hero/product1-3.png"
           alignRight={true}
         />
       </div>
