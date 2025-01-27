@@ -18,6 +18,10 @@
     @apply px-4 py-2 bg-primary text-white text-xs font-semibold;
   }
 
+  .feature-btn {
+    @apply px-4 py-2 bg-primary-green text-white text-xs font-semibold;
+  }
+
   .slider-btn {
     @apply w-16 h-16 bg-primary text-white flex items-center justify-center;
   }
