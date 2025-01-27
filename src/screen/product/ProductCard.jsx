@@ -137,15 +137,16 @@ export const ProductCard = ({
                     <BodyOne className="line-through">
                       ${priceItem.value}
                     </BodyOne>
-                    <BodyOne className="text-primary-green">
+                    <Title level={3} className="text-primary-green">
                       $
                       {(
                         priceItem.value -
                         (priceItem.value * discount) / 100
                       ).toFixed(2)}
-                    </BodyOne>
+                    </Title>
                   </div>
                 ))}
+                <BodyOne className="text-sm leading-6">{description}</BodyOne>
               </div>
             </div>
           </div>

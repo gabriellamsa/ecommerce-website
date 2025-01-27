@@ -94,9 +94,9 @@ export const productlists = [
   {
     id: 1,
     title: "Wooden Single Armchair",
-    images: [
-      { image: "../images/product/product1.png" },
-    ],
+    description:
+      "An elegant, comfortable, and sturdy wooden armchair, perfect for decorating any space.",
+    images: [{ image: "../images/product/product1.png" }],
     discount: 10,
     rating: 2.5,
     featured: true,
@@ -110,10 +110,9 @@ export const productlists = [
   {
     id: 2,
     title: "Wooden Serving Bowl",
-    description: "",
-    images: [
-      { image: "../images/product/product2.png" },
-    ],
+    description:
+      "A natural wooden bowl, perfect for serving meals with charm, practicality, and style.",
+    images: [{ image: "../images/product/product2.png" }],
     discount: 15,
     rating: 4.2,
     featured: false,
@@ -127,10 +126,9 @@ export const productlists = [
   {
     id: 3,
     title: "Wooden Glass",
-    description: "",
-    images: [
-      { image: "../images/product/product3.png" },
-    ],
+    description:
+      "A handcrafted and sophisticated wooden glass, ideal for drinks with a unique rustic touch.",
+    images: [{ image: "../images/product/product3.png" }],
     discount: 12,
     rating: 4.5,
     featured: true,
@@ -144,10 +142,9 @@ export const productlists = [
   {
     id: 4,
     title: "Wooden Cup",
-    description: "",
-    images: [
-      { image: "../images/product/product4.png" },
-    ],
+    description:
+      "A compact and versatile wooden cup for hot or cold beverages with timeless charm.",
+    images: [{ image: "../images/product/product4.png" }],
     discount: 18,
     rating: 4.8,
     featured: false,
@@ -165,10 +162,9 @@ export const productlists = [
   {
     id: 5,
     title: "Wooden Coffee Mug",
-    description: "",
-    images: [
-      { image: "../images/product/product5.png" },
-    ],
+    description:
+      "The perfect wooden mug for coffee, tea, or chocolate with an elegant rustic design.",
+    images: [{ image: "../images/product/product5.png" }],
     discount: 15,
     rating: 4.0,
     featured: false,
@@ -182,10 +178,9 @@ export const productlists = [
   {
     id: 6,
     title: "Wooden Brush",
-    description: "",
-    images: [
-      { image: "../images/product/product6.png" },
-    ],
+    description:
+      "A practical, durable, and sustainable wooden brush for everyday use with comfort.",
+    images: [{ image: "../images/product/product6.png" }],
     discount: 20,
     rating: 4.2,
     featured: true,
@@ -199,11 +194,9 @@ export const productlists = [
   {
     id: 7,
     title: "Wooden Bottles",
-    description: "",
-    images: [
-
-      { image: "../images/product/product7.png" },
-    ],
+    description:
+      "An eco-friendly and reusable wooden bottle, ideal for storing beverages with style.",
+    images: [{ image: "../images/product/product7.png" }],
     discount: 15,
     rating: 3.5,
     featured: false,
@@ -217,10 +210,9 @@ export const productlists = [
   {
     id: 8,
     title: "Luxury Armchair",
-    description: "",
-    images: [
-      { image: "../images/product/product8.png" },
-    ],
+    description:
+      "A sophisticated, ergonomic, and modern luxury armchair, perfect for a touch of elegance.",
+    images: [{ image: "../images/product/product8.png" }],
     discount: 25,
     rating: 4.8,
     featured: true,
