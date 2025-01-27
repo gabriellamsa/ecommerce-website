@@ -2,8 +2,15 @@ import { IoMdHeart } from "react-icons/io";
 import { IoCart } from "react-icons/io5";
 import { NavLink } from "react-router-dom";
 import { BodyOne, Title } from "../../components/common/CustomComponents";
-import { FaStar, FaStarHalfAlt, FaRegStar } from "react-icons/fa";
+import {
+  FaStar,
+  FaStarHalfAlt,
+  FaRegStar,
+  FaFacebook,
+  FaTwitter,
+} from "react-icons/fa";
 import { useState } from "react";
+import { AiFillInstagram } from "react-icons/ai";
 
 export const RenderRatingStars = (rating) => {
   const totalStars = 5;
@@ -25,7 +32,6 @@ export const RenderRatingStars = (rating) => {
 
 export const ProductCard = ({
   id,
-  key,
   title,
   description,
   images,
@@ -33,16 +39,10 @@ export const ProductCard = ({
   discount,
   rating,
   featured,
-  category,
-  color,
 }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const openModal = () => {
-    setIsModalOpen(true);
-  };
-  const closeModal = () => {
-    setIsModalOpen(false);
-  };
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
 
   return (
     <>
@@ -88,7 +88,7 @@ export const ProductCard = ({
           </div>
           <div className="flex items-center gap-3">
             {price.slice(0, 1).map((priceItem, index) => (
-              <div key={index}>
+              <div key={index} className="flex gap-2 items-center">
                 <BodyOne className="line-through">${priceItem.value}</BodyOne>
                 <BodyOne className="text-primary-green">
                   $
@@ -128,16 +128,18 @@ export const ProductCard = ({
                   SALE {discount}% OFF
                 </button>
                 <Title level={2}>{title}</Title>
-                <p className="text-sm text-gray-600 mt-2">{description}</p>
                 <div className="flex items-center gap-1 mt-4">
                   {RenderRatingStars(rating)}
                 </div>
                 {price.slice(0, 1).map((priceItem, index) => (
-                  <div key={index} className="mt-4">
-                    <BodyOne className="line-through">
+                  <div key={index} className="mt-4 flex items-center gap-2">
+                    <BodyOne className="line-through relative flex items-center">
                       ${priceItem.value}
                     </BodyOne>
-                    <Title level={3} className="text-primary-green">
+                    <Title
+                      level={3}
+                      className="text-primary-green flex items-center"
+                    >
                       $
                       {(
                         priceItem.value -
@@ -146,7 +148,41 @@ export const ProductCard = ({
                     </Title>
                   </div>
                 ))}
-                <BodyOne className="text-sm leading-6">{description}</BodyOne>
+                <BodyOne className="text-sm leading-6 mt-3">
+                  {description}
+                </BodyOne>
+                <div className="flex items-center gap-3 mt-4">
+                  <input
+                    type="text"
+                    value="1"
+                    className="w-12 h-12 text-primary outline-none border-2 border-primary px-4 text-center"
+                  />
+                  <button className="primary-btn">ADD TO CART</button>
+                </div>
+                <hr className="my-5" />
+                <div className="flex flex-col gap-4">
+                  <div className="flex items-center gap-5">
+                    <Title level={5} className="text-lg">
+                      Category :
+                      <span className="font-normal"> Wooden Product</span>
+                    </Title>
+                  </div>
+                  <div className="flex items-center gap-5">
+                    <Title level={5} className="text-lg">
+                      Tag :<span className="font-normal"> Wooden</span>
+                    </Title>
+                  </div>
+                  <div className="flex items-center gap-5">
+                    <Title level={5} className="text-lg">
+                      Share :
+                    </Title>
+                    <div className="flex items-center gap-3 justify-center">
+                      <FaFacebook className="text-lg" />
+                      <AiFillInstagram className="text-lg" />
+                      <FaTwitter className="text-lg" />
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
