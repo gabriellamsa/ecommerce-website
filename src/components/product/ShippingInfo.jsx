@@ -1,6 +1,8 @@
+import { BiChat } from "react-icons/bi";
 import { FaShippingFast } from "react-icons/fa";
 import { FaCircleDollarToSlot } from "react-icons/fa6";
 import { MdOutlineMarkUnreadChatAlt } from "react-icons/md";
+import { Title, BodyOne } from "../common/CustomComponents";
 
 const additionalInfo = [
   {
@@ -38,6 +40,22 @@ export const ShippingInfo = () => {
               <p className="mt-2">{info.description}</p>
             </div>
           ))}
+        </div>
+        <div className="box bg-primary p-8 flex flex-col lg:flex-row items-center justify-between">
+          <div className="left flex items-center gap-3">
+            <BiChat size={100} color="white" />
+            <div>
+              <Title className="text-white leading-none" level={3}>
+                SUBSCRIBE TO OUR NEWSLETTER
+              </Title>
+              <BodyOne className="text-gray-300">
+                Get latest news, offers and discounts.
+              </BodyOne>
+            </div>
+          </div>
+          <div className="left w-full p-5 px-8 lg:w-1/2">
+            <input type="text" className="outline-none w-full p-3" />
+          </div>
         </div>
       </section>
     </>
