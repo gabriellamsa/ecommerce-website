@@ -224,3 +224,18 @@ export const productlists = [
     color: [{ value: "black" }, { value: "gray" }, { value: "beige" }],
   },
 ];
+
+export const promotionalInfo = [
+  {
+    id: 1,
+    title: "Free Shipping On All Orders Over $59",
+    description: "Shop & shipment across the whole Europe. Cupcake ipsum dolor sit amet. Soufflé jujubes fruitcake cupcake croissant apple pie jelly-o topping. Apple pie sesame snaps liquorice jelly jujubes. Pudding caramels chocolate cake chocolate bar cupcake biscuit liquorice jelly-o.",
+    image: "../images/promotional/prom1.png",
+  },
+  {
+    id: 2,
+    title: "From $29.05",
+    description: "Organic Skincare for Glowing Complexion. Cupcake ipsum dolor sit amet jelly-o gummi bears wafer I love. I love chocolate dessert cake dessert jelly danish biscuit tart. Gummies tootsie roll liquorice marzipan wafer cake sugar plum.",
+    image: "../images/promotional/prom2.png",
+  },
+]
