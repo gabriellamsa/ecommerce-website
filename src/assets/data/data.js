@@ -229,7 +229,7 @@ export const promotionalInfo = [
   {
     id: 1,
     title: "Free Shipping On All Orders Over $59",
-    description: "Shop & shipment across the whole Europe. Cupcake ipsum dolor sit amet. Soufflé jujubes fruitcake cupcake croissant apple pie jelly-o topping. Apple pie sesame snaps liquorice jelly jujubes. Pudding caramels chocolate cake chocolate bar cupcake biscuit liquorice jelly-o.",
+    description: "Shop & shipment across the whole Europe. Cupcake ipsum dolor sit amet. Soufflé jujubes fruitcake cupcake croissant apple pie jelly-o topping.",
     image: "../images/promotional/prom1.png",
   },
   {
