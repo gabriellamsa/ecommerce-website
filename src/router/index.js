@@ -12,4 +12,4 @@ export { Layout } from "../components/common/Layout";
 
 export { Product } from "../screen/product/Product";
 
-export { ProductCard } from "../screen/product/ProductCard";
+export { ProductCard } from "../components/product/ProductCard";

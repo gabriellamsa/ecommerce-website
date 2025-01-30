@@ -1,6 +1,6 @@
 import { productlists } from "../../assets/data/data";
 import { BodyOne, Title } from "../../components/common/CustomComponents";
-import { ProductCard } from "./ProductCard";
+import { ProductCard } from "../../components/product/ProductCard";
 
 export const Product = () => {
   return (
