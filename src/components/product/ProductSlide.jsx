@@ -10,7 +10,7 @@ function CustomNextArrow(props) {
   const { onClick } = props;
   return (
     <div
-      className="absolute top-1/2 right-4 transform -translate-y-1/2 z-20 cursor-pointer"
+      className="absolute top-[32%] -right-5 lg:-right-32 rounded-full cursor-pointer"
       onClick={onClick}
     >
       <div className="w-10 h-10 bg-white border border-gray-300 rounded-full flex items-center justify-center shadow hover:bg-gray-100">
@@ -24,7 +24,7 @@ function CustomPrevArrow(props) {
   const { onClick } = props;
   return (
     <div
-      className="absolute top-1/2 left-4 transform -translate-y-1/2 z-20 cursor-pointer"
+      className="absolute top-[32%] -left-5 lg:-left-32 rounded-full cursor-pointer z-10"
       onClick={onClick}
     >
       <div className="w-10 h-10 bg-white border border-gray-300 rounded-full flex items-center justify-center shadow hover:bg-gray-100">
@@ -59,17 +59,31 @@ export const ProductSlideCard = () => {
     slidesToScroll: 1,
     nextArrow: <CustomNextArrow />,
     prevArrow: <CustomPrevArrow />,
+    responsive: [
+      {
+        breakpoint: 800,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          slideInital: 2,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          slideInital: 1,
+        },
+      },
+    ],
   };
 
   return (
     <>
       <Slider {...settings} className="gap-4">
-        {" "}
-        {/* Adicionando espaçamento entre os slides */}
         {productlists.map((product) => (
           <div key={product.id} className="px-2">
-            {" "}
-            {/* Pequeno espaçamento lateral */}
             <ProductCard
               id={product.id}
               title={product.title}
