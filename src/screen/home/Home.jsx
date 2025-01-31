@@ -1,3 +1,4 @@
+import { FilterDiscover } from "../../components/hero/FilterDiscover";
 import {
   Banner,
   Hero,
@@ -14,6 +15,7 @@ export const Home = () => {
       <ShippingInfo />
       <Banner />
       <ProductSlide />
+      <FilterDiscover />
     </>
   );
 };
