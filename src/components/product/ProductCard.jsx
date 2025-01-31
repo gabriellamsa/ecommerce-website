@@ -39,9 +39,16 @@ export const ProductCard = ({
   discount,
   rating,
   featured,
+  disableQuickView = false,
 }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const openModal = () => setIsModalOpen(true);
+
+  const openModal = () => {
+    if (!disableQuickView) {
+      setIsModalOpen(true);
+    }
+  };
+
   const closeModal = () => setIsModalOpen(false);
 
   return (
@@ -67,7 +74,10 @@ export const ProductCard = ({
           <div className="overlay flex items-center gap-2 justify-center absolute bottom-0 left-0 right-0 m-5">
             <button
               onClick={openModal}
-              className="quick-view-btn product-btn primary-btn"
+              className={`quick-view-btn product-btn primary-btn ${
+                disableQuickView ? "" : ""
+              }`}
+              disabled={disableQuickView}
             >
               Quick View
             </button>
