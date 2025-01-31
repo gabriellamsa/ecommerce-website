@@ -1,5 +1,5 @@
 import LogoImg from "../../assets/common/logo.png";
-import { BodyOne, Caption } from "./CustomComponents";
+import { BodyOne, Caption, CustomeLink, Title } from "./CustomComponents";
 
 export const Footer = () => {
   return (
@@ -21,6 +21,34 @@ export const Footer = () => {
               className="p-3 w-full border bg-white-100 border-gray-300 rounded-md outline-none"
               placeholder="email@example.com"
             />
+          </div>
+
+          <div className="flex flex-col gap-6 ml-8">
+            <Title level={5}>Store</Title>
+            <div className="flex flex-col gap-4">
+              <CustomeLink>Exemple items</CustomeLink>
+              <CustomeLink>Exemple items</CustomeLink>
+              <CustomeLink>Exemple items</CustomeLink>
+              <CustomeLink>Exemple items</CustomeLink>
+              <CustomeLink>Exemple items</CustomeLink>
+            </div>
+          </div>
+          <div className="flex flex-col gap-6 ml-8">
+            <Title level={5}>Support</Title>
+            <div className="flex flex-col gap-4">
+              <CustomeLink>Support items</CustomeLink>
+              <CustomeLink>Support items</CustomeLink>
+              <CustomeLink>Support items</CustomeLink>
+              <CustomeLink>Support items</CustomeLink>
+            </div>
+          </div>
+          <div className="flex flex-col gap-6 ml-8">
+            <Title level={5}>My Account</Title>
+            <div className="flex flex-col gap-4">
+              <CustomeLink>Profile</CustomeLink>
+              <CustomeLink>Cart Items</CustomeLink>
+              <CustomeLink>Contact</CustomeLink>
+            </div>
           </div>
         </div>
       </footer>
