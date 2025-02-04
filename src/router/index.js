@@ -1,3 +1,5 @@
+export { ProductDetail } from "../screen/product/ProductDetails";
+
 export { Shop } from "../screen/shop/Shop";
 
 export { ProductSlide } from "../components/product/ProductSlide";
