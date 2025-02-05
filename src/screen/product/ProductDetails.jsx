@@ -8,6 +8,8 @@ import {
 import { RenderRatingStars } from "../../components/product/ProductCard";
 import { useState } from "react";
 import { BiHeart, BiMinus, BiPlus } from "react-icons/bi";
+import { ProductSlideCard } from "../../components/product/ProductSlide";
+import { FilterDiscover } from "../../components/hero/FilterDiscover";
 
 const colorsValue = {
   red: "#fe7fef",
@@ -190,7 +192,12 @@ export const ProductDetail = () => {
             />
           </div>
         </div>
+        <Title level={3} className="my-5">
+          Related Products
+        </Title>
+        <ProductSlideCard />
       </section>
+      <FilterDiscover />
     </div>
   );
 };
