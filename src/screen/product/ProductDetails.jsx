@@ -135,13 +135,40 @@ export const ProductDetail = () => {
             <hr className="my-5" />
             <label htmlFor="">
               <span className="text-primary font-bold">Category: </span>Stylish
-              & Sturdy Seating
+              Wooden
             </label>
             <br />
             <label htmlFor="">
-              <span className="text-primary fold-bold">REF: </span>
-              CHAIR-1234567890
+              <span className="text-primary font-bold">REF: </span>
+              WOOD-1234567890
             </label>
+          </div>
+        </div>
+
+        <div className="flex justify-between flex-col lg:flex-row my-10">
+          <div className="lg:w-1/2">
+            <Title level={3}>Timeless Elegance in Wood</Title>
+            <Caption>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ligna
+              exquisita artis natura inspirata formant elegantiam et
+              rusticitatem in unum. Texturae naturales et fibras ligneas
+              conferunt calorem et sofisticationem, dum durabilitas et
+              versatilitas faciunt ex ligno materiam aeternam.
+            </Caption>
+            <Title level={3} className="mt-5">
+              Specifications
+            </Title>
+            <div className="flex flex-col gap-3 mt-2">
+              <Caption>Material: Premium natural wood, smooth texture</Caption>
+              <Caption>Size: Various dimensions, adjustable thickness</Caption>
+              <Caption>Features: Durable, minimalist, eco-friendly</Caption>
+              <Caption>Uses: Furniture, decor, flooring, crafts</Caption>
+              <Caption>Finish: Matte/gloss varnish, water-resistant</Caption>
+              <Caption>
+                Care: Wipe dry, avoid moisture, oil for longevity
+              </Caption>
+              <Caption>Clean. Simple. Timeless.</Caption>
+            </div>
           </div>
         </div>
       </section>
