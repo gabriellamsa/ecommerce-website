@@ -56,7 +56,7 @@ export const ProductDetail = () => {
           key={productId}
         >
           <div className="images lg:w-1/2">
-            {images.map((image, index) => (
+            {images.slice(0, 1).map((image, index) => (
               <img
                 src={image.image}
                 key={index}
@@ -138,8 +138,10 @@ export const ProductDetail = () => {
               & Sturdy Seating
             </label>
             <br />
-            <label className="text-primary font-bold">REF: </label>CHAIR
-            1234567890
+            <label htmlFor="">
+              <span className="text-primary fold-bold">REF: </span>
+              CHAIR-1234567890
+            </label>
           </div>
         </div>
       </section>
