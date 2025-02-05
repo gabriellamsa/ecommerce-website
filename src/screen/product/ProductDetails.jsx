@@ -7,6 +7,7 @@ import {
 } from "../../components/common/CustomComponents";
 import { RenderRatingStars } from "../../components/product/ProductCard";
 import { useState } from "react";
+import { BiHeart, BiMinus, BiPlus } from "react-icons/bi";
 
 const colorsValue = {
   red: "#fe7fef",
@@ -80,7 +81,6 @@ export const ProductDetail = () => {
             </div>
             <p className="text-[15px]">{description}</p>
             <br />
-
             <div>
               <Caption>Colors</Caption>
               <div className="flex items-center gap-3 mt-5">
@@ -111,6 +111,35 @@ export const ProductDetail = () => {
                 </Title>
               </div>
             </div>
+            <br />
+            <div className="flex items-center gap-3">
+              <button className="w-12 h-12 grid place-items-center bg-gray-100 text-primary border border-gray-300">
+                <BiPlus size={20} />
+              </button>
+              <input
+                type="text"
+                value="1"
+                className="w-12 h-12 text-primary outline-none border border-gray-300 px-6"
+              />
+              <button className="w-12 h-12 grid place-items-center bg-gray-100 text-primary border border-gray-300">
+                <BiMinus size={20} />
+              </button>
+              <button className="primary-btn">ADD TO CART</button>
+            </div>
+            <div className="flex items-center gap-3 mt-6">
+              <button className="flex items-center gap-2 secondary-btn">
+                <BiHeart size={20} />
+                Add to Wishlist
+              </button>
+            </div>
+            <hr className="my-5" />
+            <label htmlFor="">
+              <span className="text-primary font-bold">Category: </span>Stylish
+              & Sturdy Seating
+            </label>
+            <br />
+            <label className="text-primary font-bold">REF: </label>CHAIR
+            1234567890
           </div>
         </div>
       </section>
