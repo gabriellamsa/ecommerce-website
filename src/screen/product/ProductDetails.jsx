@@ -102,7 +102,7 @@ export const ProductDetail = () => {
                 <BodyOne className=" line-through mt-4">
                   ${selectedPrice.value}
                 </BodyOne>
-                <Title level={5} className="text-primary-green">
+                <Title level={3} className="text-primary-green mt-2">
                   ${" "}
                   {(
                     selectedPrice.value -

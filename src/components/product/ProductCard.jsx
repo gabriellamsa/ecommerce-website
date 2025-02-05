@@ -148,7 +148,7 @@ export const ProductCard = ({
                     </BodyOne>
                     <Title
                       level={3}
-                      className="text-primary-green flex items-center"
+                      className="mb-4 text-primary-green flex items-center"
                     >
                       $
                       {(
