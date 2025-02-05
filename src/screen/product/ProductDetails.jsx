@@ -170,8 +170,36 @@ export const ProductDetail = () => {
               <Caption>Clean. Simple. Timeless.</Caption>
             </div>
           </div>
+
+          <div className="lg:w-1/2 grid grid-cols-2 gap-5 lg:px-8 mt-5">
+            <ProductDetailsBox
+              title="Timeless Wooden Craft"
+              desc="Marshmallow brownie chupa chups sweet roll. Cupcake sugar plum icing tart croissant jelly-o."
+            />
+            <ProductDetailsBox
+              title="Sustainable & Elegant"
+              desc="Carrot cake cookie bonbon cheesecake. Muffin sesame snaps lollipop soufflé apple pie."
+            />
+            <ProductDetailsBox
+              title="Minimalist & Versatile"
+              desc="Macaron wafer cotton candy jelly. Danish powder croissant cake gingerbread pudding."
+            />
+            <ProductDetailsBox
+              title="Premium Natural Finish"
+              desc="Tiramisu cheesecake bear claw chocolate bar. Donut topping croissant sugar plum bonbon."
+            />
+          </div>
         </div>
       </section>
+    </div>
+  );
+};
+
+export const ProductDetailsBox = ({ title, desc }) => {
+  return (
+    <div className="flex flex-col items-center justify-center text-center bg-gray-100 p-8 h-full">
+      <Title level={5}>{title}</Title>
+      <Caption>{desc}</Caption>
     </div>
   );
 };
