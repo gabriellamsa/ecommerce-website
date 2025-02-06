@@ -96,7 +96,11 @@ export const productlists = [
     title: "Wooden Single Armchair",
     description:
       "An elegant, comfortable, and sturdy wooden armchair, perfect for decorating any space.",
-    images: [{ image: "../images/product/product1.png" }],
+    images: [
+      { image: "../images/product/product1.png" },
+      { image: "../images/product/product1.3.png" },
+      { image: "../images/product/product1.2.png" },
+    ],
     discount: 10,
     rating: 2.5,
     featured: true,
@@ -112,8 +116,11 @@ export const productlists = [
     title: "Wooden Serving Bowl",
     description:
       "A natural wooden bowl, perfect for serving meals with charm, practicality, and style.",
-    images: [{ image: "../images/product/product2.png" }],
-    discount: 15,
+    images: [
+      { image: "../images/product/product2.png" },
+      { image: "../images/product/product1.3.png" },
+      { image: "../images/product/product1.2.png" },
+    ], discount: 15,
     rating: 4.2,
     featured: false,
     price: [
@@ -128,7 +135,11 @@ export const productlists = [
     title: "Wooden Glass",
     description:
       "A handcrafted and sophisticated wooden glass, ideal for drinks with a unique rustic touch.",
-    images: [{ image: "../images/product/product3.png" }],
+    images: [
+      { image: "../images/product/product3.png" },
+      { image: "../images/product/product1.2.png" },
+      { image: "../images/product/product1.1.png" },
+    ],
     discount: 12,
     rating: 4.5,
     featured: true,
@@ -144,8 +155,11 @@ export const productlists = [
     title: "Wooden Cup",
     description:
       "A compact and versatile wooden cup for hot or cold beverages with timeless charm.",
-    images: [{ image: "../images/product/product4.png" }],
-    discount: 18,
+    images: [
+      { image: "../images/product/product4.png" },
+      { image: "../images/product/product1.1.png" },
+      { image: "../images/product/product1.2.png" },
+    ], discount: 18,
     rating: 4.8,
     featured: false,
     price: [
@@ -164,8 +178,11 @@ export const productlists = [
     title: "Wooden Coffee Mug",
     description:
       "The perfect wooden mug for coffee, tea, or chocolate with an elegant rustic design.",
-    images: [{ image: "../images/product/product5.png" }],
-    discount: 15,
+    images: [
+      { image: "../images/product/product5.png" },
+      { image: "../images/product/product1.3.png" },
+      { image: "../images/product/product1.2.png" },
+    ], discount: 15,
     rating: 4.0,
     featured: false,
     price: [
@@ -180,8 +197,11 @@ export const productlists = [
     title: "Wooden Brush",
     description:
       "A practical, durable, and sustainable wooden brush for everyday use with comfort.",
-    images: [{ image: "../images/product/product6.png" }],
-    discount: 20,
+    images: [
+      { image: "../images/product/product6.png" },
+      { image: "../images/product/product1.2.png" },
+      { image: "../images/product/product1.1.png" },
+    ], discount: 20,
     rating: 4.2,
     featured: true,
     price: [
@@ -196,8 +216,11 @@ export const productlists = [
     title: "Wooden Bottles",
     description:
       "An eco-friendly and reusable wooden bottle, ideal for storing beverages with style.",
-    images: [{ image: "../images/product/product7.png" }],
-    discount: 15,
+    images: [
+      { image: "../images/product/product7.png" },
+      { image: "../images/product/product1.3.png" },
+      { image: "../images/product/product1.1.png" },
+    ], discount: 15,
     rating: 3.5,
     featured: false,
     price: [
@@ -212,7 +235,10 @@ export const productlists = [
     title: "Luxury Armchair",
     description:
       "A sophisticated, ergonomic, and modern luxury armchair, perfect for a touch of elegance.",
-    images: [{ image: "../images/product/product8.png" }],
+    images: [{ image: "../images/product/product8.png" },
+    { image: "../images/product/product1.2.png" },
+    { image: "../images/product/product1.3.png" },
+    ],
     discount: 25,
     rating: 4.8,
     featured: true,
