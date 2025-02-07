@@ -122,7 +122,7 @@ export const HeroItem = ({ title, description, price, color, image }) => {
             View Details
           </button>
           <button className="secondary-btn uppercase text-sm sm:text-xs">
-            View Shop
+            Shop Now
           </button>
         </div>
       </div>
