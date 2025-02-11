@@ -11,6 +11,8 @@ import {
 } from "react-icons/fa";
 import { useState } from "react";
 import { AiFillInstagram } from "react-icons/ai";
+import { useDispatch } from "react-redux";
+import { CartActions } from "../../redux/slice/cartSlice";
 
 export const RenderRatingStars = (rating) => {
   const totalStars = 5;
@@ -42,6 +44,7 @@ export const ProductCard = ({
   disableQuickView = false,
 }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const dispatch = useDispatch();
 
   const openModal = () => {
     if (!disableQuickView) {
@@ -50,6 +53,19 @@ export const ProductCard = ({
   };
 
   const closeModal = () => setIsModalOpen(false);
+
+  const discountPrice = price[0].value - (price[0].value * discount) / 100;
+
+  const addToCart = () => {
+    const product = {
+      id,
+      title,
+      price: discountPrice,
+      cover: images[0]?.image,
+    };
+    dispatch(CartActions.addToCart(product));
+    console.log("Added to Cart:", product);
+  };
 
   return (
     <>
@@ -81,7 +97,10 @@ export const ProductCard = ({
             >
               Quick View
             </button>
-            <button className="add-to-card-btn product-btn primary-btn">
+            <button
+              onClick={addToCart}
+              className="add-to-card-btn product-btn primary-btn"
+            >
               <IoCart size={23} />
             </button>
             <button className="love-btn product-btn primary-btn">
