@@ -47,7 +47,7 @@ export const Hero = () => {
 
   return (
     <div>
-      <section className="h-auto sm:h-[75vh] mt-[64px] bg-white relative z-10">
+      <section className="h-auto sm:h-[75vh] mt-[64px] bg-white relative z-0">
         <Slider {...settings}>
           {herolist.map((item) => (
             <HeroItem
@@ -79,7 +79,7 @@ export const HeroItem = ({ title, description, price, color, image }) => {
   };
 
   return (
-    <section className="lg:bg-white-100 content flex flex-col lg:flex-row justify-between items-center lg:px-16 px-6 sm:px-4 h-auto lg:h-full relative z-20">
+    <section className="lg:bg-white-100 content flex flex-col lg:flex-row justify-between items-center lg:px-16 px-6 sm:px-4 h-auto lg:h-full relative z-0">
       <div className="left w-full lg:w-1/2 p-6 sm:p-4">
         <Title
           level={1}
@@ -134,7 +134,7 @@ export const HeroItem = ({ title, description, price, color, image }) => {
           className="h-[50vh] sm:h-[40vh] lg:h-[80vh] w-auto object-contain"
         />
       </div>
-      <div className="lg:bg-black lg:h-full lg:absolute lg:top-0 lg:right-0 lg:w-1/3 lg:-z-10"></div>
+      <div className="lg:bg-black lg:h-[64px] lg:absolute lg:top-0 lg:right-0 lg:w-[33.33%] lg:-z-10"></div>
     </section>
   );
 };
