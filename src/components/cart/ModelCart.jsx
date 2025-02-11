@@ -76,6 +76,14 @@ export const ModelCart = () => {
                 </span>
               </button>
             </div>
+            <div className="line-container">
+              <div
+                className={`line ${activeTab === "cart" ? "active" : ""}`}
+              ></div>
+              <div
+                className={`line ${activeTab === "wishlist" ? "active" : ""}`}
+              ></div>
+            </div>
           </div>
         </>
       )}
