@@ -1,8 +1,11 @@
 import { IoCartOutline, IoHeartOutline } from "react-icons/io5";
 import { Badges } from "../common/CustomComponents";
 import { useState } from "react";
+import { useSelector } from "react-redux";
+import { selectTotalQuantity } from "../../redux/slice/cartSlice";
 
 export const ModelCart = () => {
+  const totalQuantity = useSelector(selectTotalQuantity);
   const [isOpen, setIsOpen] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
   const [activeTab, setActiveTab] = useState("cart");
@@ -38,7 +41,7 @@ export const ModelCart = () => {
       <button className="relative z-20" onClick={openModel}>
         <IoCartOutline size={23} />
         <div className="absolute -top-2 -right-1.5">
-          <Badges color="bg-primary-green">0</Badges>
+          <Badges color="bg-primary-green">{totalQuantity}</Badges>
         </div>
       </button>
 
@@ -60,7 +63,7 @@ export const ModelCart = () => {
               >
                 Shopping Cart
                 <span className="w-7 h-7 text-[11px] font-normal rounded-full text-white grid place-content-center bg-primary">
-                  0
+                  {totalQuantity}
                 </span>
               </button>
 
@@ -84,6 +87,7 @@ export const ModelCart = () => {
                 className={`line ${activeTab === "wishlist" ? "active" : ""}`}
               ></div>
             </div>
+            {activeTab === "cart" ? <>product here</> : <>product here</>}
           </div>
         </>
       )}
