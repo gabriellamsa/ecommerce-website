@@ -1,7 +1,7 @@
 import { IoCartOutline, IoHeartOutline } from "react-icons/io5";
 import { Badges, Title } from "../common/CustomComponents";
 import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   selectTotalPrice,
   selectTotalQuantity,
@@ -124,6 +124,26 @@ export const ModelCart = () => {
   );
 };
 
-export const CartProduct = () => {
-  return <div>ModelCart</div>;
+export const CartProduct = ({ id, cover, name, price, quantity }) => {
+  const dispatch = useDispatch();
+  const removeCartItems = () => {
+    // to do;
+  };
+
+  return (
+    <>
+      <div className="mt-5 border-b-2 border-gray-200 pb-5">
+        <div className="flex items-center gap-5">
+          <div className="images w-20 h-20">
+            {cover && <img src={cover} alt={name} />}
+          </div>
+          <div>
+            <p className="font-medium">{name}</p>
+            <p className="text-gray-500">Qty: {quantity}</p>
+            <p className="font-medium">${price.toFixed(2)}</p>
+          </div>
+        </div>
+      </div>
+    </>
+  );
 };
