@@ -1,11 +1,17 @@
 import { IoCartOutline, IoHeartOutline } from "react-icons/io5";
-import { Badges } from "../common/CustomComponents";
+import { Badges, Title } from "../common/CustomComponents";
 import { useState } from "react";
 import { useSelector } from "react-redux";
-import { selectTotalQuantity } from "../../redux/slice/cartSlice";
+import {
+  selectTotalPrice,
+  selectTotalQuantity,
+} from "../../redux/slice/cartSlice";
 
 export const ModelCart = () => {
   const totalQuantity = useSelector(selectTotalQuantity);
+  const cartItems = useSelector((state) => state.cart.itemList);
+  const totalPrice = useSelector(selectTotalPrice);
+
   const [isOpen, setIsOpen] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
   const [activeTab, setActiveTab] = useState("cart");
@@ -87,10 +93,37 @@ export const ModelCart = () => {
                 className={`line ${activeTab === "wishlist" ? "active" : ""}`}
               ></div>
             </div>
-            {activeTab === "cart" ? <>product here</> : <>product here</>}
+            {activeTab === "cart" ? (
+              <>
+                {cartItems.map((item) => (
+                  <CartProduct
+                    key={item.id}
+                    id={item.id}
+                    cover={item.cover}
+                    name={item.name}
+                    price={item.price}
+                    quantity={item.quantity}
+                  />
+                ))}
+
+                <div className="total flex items-center justify-between mt-10">
+                  <Title level={6}>Subtotal:</Title>
+                  <Title level={6}>{totalPrice.toFixed(2)}</Title>
+                </div>
+                <div className="checkout">
+                  <button className="primary-btn w-full">View Cart</button>
+                </div>
+              </>
+            ) : (
+              <>product here</>
+            )}
           </div>
         </>
       )}
     </>
   );
+};
+
+export const CartProduct = () => {
+  return <div>ModelCart</div>;
 };
