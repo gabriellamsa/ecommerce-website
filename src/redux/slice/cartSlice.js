@@ -19,7 +19,7 @@ const cartSlice = createSlice({
           price: newItem.price,
           quantity: 1,
           totalPrice: newItem.price,
-          name: newItem.name || newItem.title || "Unnamed Product", // 🚀 GARANTE O NOME
+          name: newItem.name || newItem.title || "Unnamed Product",
           cover: newItem.cover,
         });
       }
