@@ -1,13 +1,15 @@
-import { IoCartOutline, IoHeartOutline } from "react-icons/io5";
+import { IoCartOutline, IoHeartOutline, IoTrashOutline } from "react-icons/io5";
 import { Badges, Title } from "../common/CustomComponents";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   selectTotalPrice,
   selectTotalQuantity,
+  CartActions,
 } from "../../redux/slice/cartSlice";
 
 export const ModelCart = () => {
+  const dispatch = useDispatch();
   const totalQuantity = useSelector(selectTotalQuantity);
   const cartItems = useSelector((state) => state.cart.itemList);
   const totalPrice = useSelector(selectTotalPrice);
@@ -103,12 +105,23 @@ export const ModelCart = () => {
                     name={item.name}
                     price={item.price}
                     quantity={item.quantity}
+                    onRemove={() =>
+                      dispatch(CartActions.removeFromCart(item.id))
+                    }
+                    onChangeQuantity={(qty) =>
+                      dispatch(
+                        CartActions.updateQuantity({
+                          id: item.id,
+                          quantity: qty,
+                        })
+                      )
+                    }
                   />
                 ))}
 
                 <div className="total flex items-center justify-between mt-10">
                   <Title level={6}>Subtotal:</Title>
-                  <Title level={6}>{totalPrice.toFixed(2)}</Title>
+                  <Title level={6}>${totalPrice.toFixed(2)}</Title>
                 </div>
                 <div className="checkout">
                   <button className="primary-btn w-full">View Cart</button>
@@ -124,26 +137,43 @@ export const ModelCart = () => {
   );
 };
 
-export const CartProduct = ({ id, cover, name, price, quantity }) => {
-  const dispatch = useDispatch();
-  const removeCartItems = () => {
-    // to do;
-  };
-
+export const CartProduct = ({
+  cover,
+  name,
+  price,
+  quantity,
+  onRemove,
+  onChangeQuantity,
+}) => {
   return (
-    <>
-      <div className="mt-5 border-b-2 border-gray-200 pb-5">
-        <div className="flex items-center gap-5">
-          <div className="images w-20 h-20">
-            {cover && <img src={cover} alt={name} />}
-          </div>
-          <div>
-            <p className="font-medium">{name}</p>
-            <p className="text-gray-500">Qty: {quantity}</p>
-            <p className="font-medium">${price.toFixed(2)}</p>
-          </div>
+    <div className="mt-5 border-b-2 border-gray-200 pb-5 flex justify-between items-center">
+      <div className="flex items-center gap-5">
+        <div className="images w-20 h-20">
+          {cover && <img src={cover} alt={name} />}
+        </div>
+        <div className="flex flex-col">
+          <p className="font-medium text-primary-green">{name}</p>
+          <p className="text-gray-500">Qty: {quantity}</p>
+          <p className="font-medium">${price.toFixed(2)}</p>
         </div>
       </div>
-    </>
+
+      <div className="flex flex-col items-center">
+        <button onClick={onRemove} className=" mb-1">
+          <IoTrashOutline size={18} />
+        </button>
+        <select
+          value={quantity}
+          onChange={(e) => onChangeQuantity(Number(e.target.value))}
+          className="border rounded px-3 py-1 text-center"
+        >
+          {[...Array(10).keys()].map((num) => (
+            <option key={num + 1} value={num + 1}>
+              {num + 1}
+            </option>
+          ))}
+        </select>
+      </div>
+    </div>
   );
 };

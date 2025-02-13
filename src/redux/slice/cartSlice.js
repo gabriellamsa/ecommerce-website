@@ -1,4 +1,4 @@
-import { createSelector, createSlice } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
 const cartSlice = createSlice({
   name: "cart",
@@ -13,32 +13,37 @@ const cartSlice = createSlice({
 
       if (existingItem) {
         existingItem.quantity++;
-        existingItem.totalPrice += newItem.price;
       } else {
         state.itemList.push({
           id: newItem.id,
           price: newItem.price,
           quantity: 1,
           totalPrice: newItem.price,
-          name: newItem.title,
+          name: newItem.name || newItem.title || "Unnamed Product", // 🚀 GARANTE O NOME
           cover: newItem.cover,
         });
-        state.totalQuantity++;
       }
+      state.totalQuantity++;
+    },
 
-      console.log("Added to Cart:", state.itemList);
+    removeFromCart(state, action) {
+      state.itemList = state.itemList.filter((item) => item.id !== action.payload);
+      state.totalQuantity = state.itemList.reduce((acc, item) => acc + item.quantity, 0);
+    },
+
+    updateQuantity(state, action) {
+      const { id, quantity } = action.payload;
+      const item = state.itemList.find((item) => item.id === id);
+      if (item) {
+        item.quantity = quantity;
+      }
+      state.totalQuantity = state.itemList.reduce((acc, item) => acc + item.quantity, 0);
     },
   },
 });
 
 export const CartActions = cartSlice.actions;
-
-export const selectTotalQuantity = createSelector(
-  (state) => state.cart?.itemList || [],
-  (itemList) => itemList.reduce((acc, item) => acc + item.quantity, 0)
-);
-export const selectTotalPrice = createSelector(
-  (state) => state.cart.itemList,
-  (itemList) => itemList.reduce((acc, item) => acc + item.totalPrice, 0)
-);
+export const selectTotalQuantity = (state) => state.cart.totalQuantity;
+export const selectTotalPrice = (state) =>
+  state.cart.itemList.reduce((acc, item) => acc + item.price * item.quantity, 0);
 export default cartSlice.reducer;
