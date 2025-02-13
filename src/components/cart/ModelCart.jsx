@@ -7,11 +7,19 @@ import {
   selectTotalQuantity,
   CartActions,
 } from "../../redux/slice/cartSlice";
+import {
+  selectTotalFavorites,
+  favoriteActions,
+} from "../../redux/slice/favoriteSlice";
 
 export const ModelCart = () => {
   const dispatch = useDispatch();
   const totalQuantity = useSelector(selectTotalQuantity);
   const cartItems = useSelector((state) => state.cart.itemList);
+  const totalFavorites = useSelector(selectTotalFavorites);
+  const favoriteItems = useSelector(
+    (state) => state.favorites.favoritesItemList
+  );
   const totalPrice = useSelector(selectTotalPrice);
 
   const [isOpen, setIsOpen] = useState(false);
@@ -42,7 +50,7 @@ export const ModelCart = () => {
       <button className="relative z-20" onClick={openModel}>
         <IoHeartOutline size={23} />
         <div className="absolute -top-2 -right-1.5">
-          <Badges color="bg-primary-green">0</Badges>
+          <Badges color="bg-primary-green">{totalFavorites}</Badges>
         </div>
       </button>
 
@@ -83,7 +91,7 @@ export const ModelCart = () => {
               >
                 Wishlist
                 <span className="w-7 h-7 text-[11px] font-normal rounded-full text-white grid place-content-center bg-primary">
-                  0
+                  {totalFavorites}
                 </span>
               </button>
             </div>
@@ -95,6 +103,7 @@ export const ModelCart = () => {
                 className={`line ${activeTab === "wishlist" ? "active" : ""}`}
               ></div>
             </div>
+
             {activeTab === "cart" ? (
               <>
                 {cartItems.map((item) => (
@@ -128,7 +137,20 @@ export const ModelCart = () => {
                 </div>
               </>
             ) : (
-              <>product here</>
+              <>
+                {favoriteItems.map((item) => (
+                  <FavoriteProduct
+                    key={item.id}
+                    id={item.id}
+                    cover={item.cover}
+                    name={item.name}
+                    price={item.price}
+                    onRemove={() =>
+                      dispatch(favoriteActions.removeFromFavorites(item.id))
+                    }
+                  />
+                ))}
+              </>
             )}
           </div>
         </>
@@ -159,7 +181,7 @@ export const CartProduct = ({
       </div>
 
       <div className="flex flex-col items-center">
-        <button onClick={onRemove} className=" mb-1">
+        <button onClick={onRemove} className="mb-1">
           <IoTrashOutline size={18} />
         </button>
         <select
@@ -174,6 +196,26 @@ export const CartProduct = ({
           ))}
         </select>
       </div>
+    </div>
+  );
+};
+
+export const FavoriteProduct = ({ cover, name, price, onRemove }) => {
+  return (
+    <div className="mt-5 border-b-2 border-gray-200 pb-5 flex justify-between items-center">
+      <div className="flex items-center gap-5">
+        <div className="images w-20 h-20">
+          {cover && <img src={cover} alt={name} />}
+        </div>
+        <div className="flex flex-col">
+          <p className="font-medium text-primary-green">{name}</p>
+          <p className="font-medium">${price.toFixed(2)}</p>
+        </div>
+      </div>
+
+      <button onClick={onRemove}>
+        <IoTrashOutline size={18} />
+      </button>
     </div>
   );
 };
