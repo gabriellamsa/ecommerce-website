@@ -13,7 +13,7 @@ export const CartPage = () => {
       <section className="mt-16">
         <div className="h-[50vh]">
           <div className="images absolute top-0 left-0 w-full h-1/2">
-            <img src={BgImage} alt="" />
+            <img src={BgImage} alt="" className="w-full h-full object-cover" />
           </div>
           <div className="text absolute top-48 left-[45%]">
             <Title level={1}>Cart</Title>
@@ -23,45 +23,45 @@ export const CartPage = () => {
           <div className="w-2/3">
             <div className="relative overflow-x-auto sm:rounded-lg">
               <table className="w-full text-sm text-left  rtl:text-right">
-                <thead className="text-xs text-primary uppercase bg-gray-500">
+                <thead className="text-xs text-primary uppercase bg-gray-50">
                   <tr>
                     <th scope="col" className="px-16 py-5">
                       Thumbnail
                     </th>
-                  </tr>
-                  <tr>
                     <th scope="col" className="px-6 py-3">
                       Product
                     </th>
-                  </tr>
-                  <tr>
                     <th scope="col" className="px-6 py-3">
                       Price
                     </th>
-                  </tr>
-                  <tr>
                     <th scope="col" className="px-6 py-3">
                       Quantity
                     </th>
-                  </tr>
-                  <tr>
                     <th scope="col" className="px-6 py-3">
                       Subtotal
                     </th>
                   </tr>
                 </thead>
                 <tbody>
-                  {cartItems?.map((item) => (
-                    <CartPageCard
-                      key={item?.id}
-                      id={item?.id}
-                      cover={item?.cover}
-                      name={item?.name}
-                      price={item?.price}
-                      quantity={item?.quantity}
-                      totalPrice={item?.totalPrice}
-                    />
-                  ))}
+                  {cartItems.length > 0 ? (
+                    cartItems.map((item) => (
+                      <CartPageCard
+                        key={item.id}
+                        id={item.id}
+                        cover={item.cover}
+                        name={item.name}
+                        price={item.price}
+                        quantity={item.quantity}
+                        totalPrice={item.totalPrice}
+                      />
+                    ))
+                  ) : (
+                    <tr>
+                      <td colSpan="5" className="text-center py-4">
+                        No items in cart.
+                      </td>
+                    </tr>
+                  )}
                 </tbody>
               </table>
             </div>
@@ -91,6 +91,23 @@ export const CartPage = () => {
   );
 };
 
-export const CartPageCard = () => {
-  return <div>CartPage</div>;
+export const CartPageCard = ({
+  id,
+  cover,
+  name,
+  price,
+  quantity,
+  totalPrice,
+}) => {
+  return (
+    <tr>
+      <td className="px-16 py-5">
+        <img src={cover} alt={name} className="w-16 h-16 object-cover" />
+      </td>
+      <td className="px-6 py-3">{name}</td>
+      <td className="px-6 py-3">${price.toFixed(2)}</td>
+      <td className="px-6 py-3">{quantity}</td>
+      <td className="px-6 py-3">${totalPrice.toFixed(2)}</td>
+    </tr>
+  );
 };

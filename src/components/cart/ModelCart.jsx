@@ -11,6 +11,7 @@ import {
   selectTotalFavorites,
   favoriteActions,
 } from "../../redux/slice/favoriteSlice";
+import { NavLink } from "react-router-dom";
 
 export const ModelCart = () => {
   const dispatch = useDispatch();
@@ -132,9 +133,10 @@ export const ModelCart = () => {
                   <Title level={6}>Subtotal:</Title>
                   <Title level={6}>${totalPrice.toFixed(2)}</Title>
                 </div>
-                <div className="checkout">
+
+                <NavLink to="/cart">
                   <button className="primary-btn w-full">View Cart</button>
-                </div>
+                </NavLink>
               </>
             ) : (
               <>
