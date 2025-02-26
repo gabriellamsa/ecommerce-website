@@ -2,6 +2,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { selectTotalPrice } from "../redux/slice/cartSlice";
 import BgImage from "../assets/common/Frame.png";
 import { Title } from "../components/common/CustomComponents";
+import { CartActions } from "../redux/slice/cartSlice";
+import { IoTrashOutline, IoAddOutline, IoRemoveOutline } from "react-icons/io5";
 
 export const CartPage = () => {
   const cartItems = useSelector((state) => state.cart.itemList);
@@ -22,7 +24,7 @@ export const CartPage = () => {
         <div className="container flex justify-between">
           <div className="w-2/3">
             <div className="relative overflow-x-auto sm:rounded-lg">
-              <table className="w-full text-sm text-left  rtl:text-right">
+              <table className="w-full text-sm text-left rtl:text-right">
                 <thead className="text-xs text-primary uppercase bg-gray-50">
                   <tr>
                     <th scope="col" className="px-16 py-5">
@@ -53,6 +55,7 @@ export const CartPage = () => {
                         price={item.price}
                         quantity={item.quantity}
                         totalPrice={item.totalPrice}
+                        dispatch={dispatch}
                       />
                     ))
                   ) : (
@@ -71,17 +74,16 @@ export const CartPage = () => {
               <p className="text-lg font-medium text-primary">Cart</p>
               <hr className="my-2 h-[2px] bg-gray-200" />
               <div className="text-lg font-medium text-primary flex items-center gap-5">
-                <p className="w-32">Subtotal</p>{" "}
+                <p className="w-32">Subtotal</p>
                 <p className="text-sm font-normal">
-                  Enter your adress to view shipping options.
+                  Enter your address to view shipping options.
                 </p>
               </div>
               <hr className="my-3 h-[2px] bg-gray-200" />
               <div className="text-lg font-medium text-primary flex items-center gap-5">
-                <p className="w-32">Total</p>{" "}
+                <p className="w-32">Total</p>
                 <p className="text-sm font-normal">${totalPrice.toFixed(2)}</p>
               </div>
-
               <button className="primary-btn mt-5">Checkout</button>
             </div>
           </div>
@@ -98,6 +100,7 @@ export const CartPageCard = ({
   price,
   quantity,
   totalPrice,
+  dispatch,
 }) => {
   return (
     <tr>
@@ -106,7 +109,40 @@ export const CartPageCard = ({
       </td>
       <td className="px-6 py-3">{name}</td>
       <td className="px-6 py-3">${price.toFixed(2)}</td>
-      <td className="px-6 py-3">{quantity}</td>
+      <td className="px-6 py-3">
+        <div className="flex flex-col items-center">
+          <button
+            onClick={() => dispatch(CartActions.removeFromCart(id))}
+            className="mb-1"
+          >
+            <IoTrashOutline size={18} />
+          </button>
+          <div className="flex items-center border rounded">
+            <button
+              onClick={() =>
+                dispatch(
+                  CartActions.updateQuantity({ id, quantity: quantity - 1 })
+                )
+              }
+              disabled={quantity <= 1}
+              className="px-2 py-1"
+            >
+              <IoRemoveOutline size={18} />
+            </button>
+            <span className="px-3 py-1">{quantity}</span>
+            <button
+              onClick={() =>
+                dispatch(
+                  CartActions.updateQuantity({ id, quantity: quantity + 1 })
+                )
+              }
+              className="px-2 py-1"
+            >
+              <IoAddOutline size={18} />
+            </button>
+          </div>
+        </div>
+      </td>
       <td className="px-6 py-3">${totalPrice.toFixed(2)}</td>
     </tr>
   );
