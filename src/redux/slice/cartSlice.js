@@ -32,11 +32,17 @@ const cartSlice = createSlice({
       state.totalQuantity = state.itemList.reduce((acc, item) => acc + item.quantity, 0);
     },
 
+    clearCart(state) {
+      state.itemList = []
+      state.totalQuantity = 0
+    },
+
     updateQuantity(state, action) {
       const { id, quantity } = action.payload;
       const item = state.itemList.find((item) => item.id === id);
       if (item) {
         item.quantity = quantity;
+        item.totalPrice = item.price * quantity;
       }
       state.totalQuantity = state.itemList.reduce((acc, item) => acc + item.quantity, 0);
     },
@@ -44,6 +50,7 @@ const cartSlice = createSlice({
 });
 
 export const CartActions = cartSlice.actions;
+export const { clearCart } = cartSlice.actions;
 export const selectTotalQuantity = (state) => state.cart.totalQuantity;
 export const selectTotalPrice = (state) =>
   state.cart.itemList.reduce((acc, item) => acc + item.price * item.quantity, 0);

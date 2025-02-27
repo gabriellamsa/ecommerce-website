@@ -6,12 +6,14 @@ import {
   selectTotalPrice,
   selectTotalQuantity,
   CartActions,
+  clearCart,
 } from "../../redux/slice/cartSlice";
 import {
   selectTotalFavorites,
   favoriteActions,
 } from "../../redux/slice/favoriteSlice";
 import { NavLink } from "react-router-dom";
+import { CheckoutForm } from "./CheckoutForm";
 
 export const ModelCart = () => {
   const dispatch = useDispatch();
@@ -44,6 +46,13 @@ export const ModelCart = () => {
 
   const handleTabChange = (tab) => {
     setActiveTab(tab);
+  };
+
+  const handlePaymentSuccess = () => {
+    console.log("==============================");
+    console.log("Payment Success");
+    console.log("==============================");
+    dispatch(clearCart());
   };
 
   return (
@@ -133,7 +142,12 @@ export const ModelCart = () => {
                   <Title level={6}>Subtotal:</Title>
                   <Title level={6}>${totalPrice.toFixed(2)}</Title>
                 </div>
-
+                <div className="checkout">
+                  <CheckoutForm
+                    total={totalPrice}
+                    handlePaymentSuccess={handlePaymentSuccess}
+                  />
+                </div>
                 <NavLink to="/cart">
                   <button className="primary-btn w-full">View Cart</button>
                 </NavLink>
