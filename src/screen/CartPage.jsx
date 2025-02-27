@@ -69,13 +69,18 @@ export const CartPage = () => {
               </table>
             </div>
           </div>
-          <div className="w-2/6 ml-16">
+          <div className="w-2/5 ml-16">
             <div className="bg-gray-100 p-5">
               <p className="text-lg font-medium text-primary">Cart</p>
               <hr className="my-2 h-[2px] bg-gray-200" />
               <div className="text-lg font-medium text-primary flex items-center gap-5">
                 <p className="w-32">Subtotal</p>
-                <p className="text-sm font-normal">
+                <p className="text-sm font-normal">${totalPrice.toFixed(2)}</p>
+              </div>
+              <hr className="my-3 h-[2px] bg-gray-200" />
+              <div className="text-lg font-medium text-primary flex items-center gap-5">
+                <p className="w-32">Shipping</p>
+                <p className="text-sm font-normal w-42">
                   Enter your address to view shipping options.
                 </p>
               </div>
@@ -84,7 +89,7 @@ export const CartPage = () => {
                 <p className="w-32">Total</p>
                 <p className="text-sm font-normal">${totalPrice.toFixed(2)}</p>
               </div>
-              <button className="primary-btn mt-5">Checkout</button>
+              <button className="primary-btn mt-5">Proced to Checkout</button>
             </div>
           </div>
         </div>
