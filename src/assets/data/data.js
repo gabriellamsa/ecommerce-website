@@ -11,21 +11,11 @@ export const menulists = [
   },
   {
     id: 3,
-    path: "/blog",
-    link: "Blog",
-  },
-  {
-    id: 4,
     path: "/about",
     link: "About",
   },
   {
-    id: 5,
-    path: "/services",
-    link: "Services",
-  },
-  {
-    id: 6,
+    id: 4,
     path: "/contact",
     link: "Contact",
   },
