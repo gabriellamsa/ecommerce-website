@@ -1,29 +1,39 @@
 import { useDispatch } from "react-redux";
 import { clearCart } from "../../redux/slice/cartSlice";
-import StripeCheckout from "react-stripe-checkout";
+import { useState } from "react";
 
 export const CheckoutForm = ({ total, handlePaymentSuccess }) => {
   const dispatch = useDispatch();
+  const [isPaymentProcessing, setIsPaymentProcessing] = useState(false);
+  const [isPaymentSuccess, setIsPaymentSuccess] = useState(false);
 
-  const handleToken = (token) => {
-    if (token) {
+  const handleFakePayment = () => {
+    setIsPaymentProcessing(true);
+
+    setTimeout(() => {
+      setIsPaymentProcessing(false);
+      setIsPaymentSuccess(true);
+
       handlePaymentSuccess();
       dispatch(clearCart());
-    }
+    }, 2000);
   };
 
   return (
-    <StripeCheckout
-      token={handleToken}
-      stripeKey="pk_test_51QxG2gFs6Hb4V5G3LZX3oAA2dtECfhvimoUhHrrlOrYFErmWjGwvweN4yhHwgHjMu8xYpzXoocWBMrjowYQP8wHg00s7g78YRy"
-      amount={total * 100}
-      name="Lunacart Ecommerce"
-      email="email@example.com"
-      description="Payment test using Stripe"
-    >
-      <button className="w-full bg-gray-200 py-3.5 my-3 font-medium">
-        Pay ${total?.toFixed(2)}
+    <div>
+      <button
+        className="w-full bg-gray-200 py-3.5 my-3 font-medium"
+        onClick={handleFakePayment}
+        disabled={isPaymentProcessing}
+      >
+        {isPaymentProcessing ? "Processing..." : `Pay $${total?.toFixed(2)}`}
       </button>
-    </StripeCheckout>
+
+      {isPaymentSuccess && (
+        <div className="mt-3 text-center text-green-600">
+          ✅ Payment Successful!
+        </div>
+      )}
+    </div>
   );
 };
