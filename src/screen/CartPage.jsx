@@ -4,6 +4,13 @@ import BgImage from "../assets/common/Frame.png";
 import { Title } from "../components/common/CustomComponents";
 import { CartActions } from "../redux/slice/cartSlice";
 import { IoTrashOutline, IoAddOutline, IoRemoveOutline } from "react-icons/io5";
+import { Elements } from "@stripe/react-stripe-js";
+import { loadStripe } from "@stripe/stripe-js";
+import { StripeCheckoutForm } from "../components/checkout/StripeCheckoutForm";
+
+const stripePromise = loadStripe(
+  "pk_test_51QxG2gFs6Hb4V5G3LZX3oAA2dtECfhvimoUhHrrlOrYFErmWjGwvweN4yhHwgHjMu8xYpzXoocWBMrjowYQP8wHg00s7g78YRy"
+);
 
 export const CartPage = () => {
   const cartItems = useSelector((state) => state.cart.itemList);
@@ -89,7 +96,9 @@ export const CartPage = () => {
                 <p className="w-32">Total</p>
                 <p className="text-sm font-normal">${totalPrice.toFixed(2)}</p>
               </div>
-              <button className="primary-btn mt-5">Proced to Checkout</button>
+              <Elements stripe={stripePromise}>
+                <StripeCheckoutForm total={totalPrice} dispatch={dispatch} />
+              </Elements>
             </div>
           </div>
         </div>
