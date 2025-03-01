@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { NavLink } from "react-router-dom";
 
-const Title = ({ level, children, className }) => {
+const Title = ({ level = 2, children, className = "" }) => {
   const Heading = `h${level}`;
   const classes = `font-medium ${
     level === 1
@@ -20,7 +20,7 @@ const Title = ({ level, children, className }) => {
   return <Heading className={`${className} ${classes}`}>{children}</Heading>;
 };
 
-const BodyOne = ({ children, className }) => {
+const BodyOne = ({ children, className = "" }) => {
   const classes = "text-lg font-normal text-primary-gray mb-4";
   return <p className={`${className} ${classes}`}>{children}</p>;
 };
@@ -29,7 +29,7 @@ const Caption = ({ children }) => {
   return <p className="text-sm font-normal text-primary-gray">{children}</p>;
 };
 
-const CustomeNavLink = ({ href, className, children }) => {
+const CustomeNavLink = ({ href, className = "", children }) => {
   const linkStyles =
     "text-[15px] font-medium text-gray-600 cursor-pointer list-none";
   return (
@@ -46,7 +46,7 @@ const CustomeNavLink = ({ href, className, children }) => {
   );
 };
 
-const CustomeLink = ({ className, children }) => {
+const CustomeLink = ({ className = "", children }) => {
   const linkStyles =
     "text-[15px] font-medium text-gray-600 cursor-pointer list-none";
   return <NavLink className={`${className} ${linkStyles}`}>{children}</NavLink>;
@@ -65,9 +65,18 @@ const Badges = ({ color, children }) => {
 export { Title, BodyOne, Caption, CustomeNavLink, CustomeLink, Badges };
 
 Title.propTypes = {
-  level: PropTypes.oneOf([1, 2, 3, 4, 5, 6]).isRequired,
+  level: PropTypes.oneOf([1, 2, 3, 4, 5, 6]),
   children: PropTypes.node.isRequired,
-  className: PropTypes.node.isRequired,
+  className: PropTypes.string,
+};
+
+BodyOne.propTypes = {
+  children: PropTypes.node.isRequired,
+  className: PropTypes.string,
+};
+
+Caption.propTypes = {
+  children: PropTypes.node.isRequired,
 };
 
 CustomeNavLink.propTypes = {
@@ -78,15 +87,6 @@ CustomeNavLink.propTypes = {
 
 CustomeLink.propTypes = {
   className: PropTypes.string,
-  children: PropTypes.node.isRequired,
-};
-
-BodyOne.propTypes = {
-  children: PropTypes.node.isRequired,
-  className: PropTypes.node.isRequired,
-};
-
-Caption.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
