@@ -1,5 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { CartPage, Home, Layout, ProductDetail, Shop } from "./router";
+import { About } from "./screen/about/AboutPage";
 
 const App = () => {
   return (
@@ -35,6 +36,14 @@ const App = () => {
             element={
               <Layout>
                 <CartPage />
+              </Layout>
+            }
+          />
+          <Route
+            path="/about"
+            element={
+              <Layout>
+                <About />
               </Layout>
             }
           />
