@@ -1,6 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { CartPage, Home, Layout, ProductDetail, Shop } from "./router";
 import { About } from "./screen/about/AboutPage";
+import { Contact } from "./screen/contact/contactPage";
 
 const App = () => {
   return (
@@ -44,6 +45,14 @@ const App = () => {
             element={
               <Layout>
                 <About />
+              </Layout>
+            }
+          />
+          <Route
+            path="/contact"
+            element={
+              <Layout>
+                <Contact />
               </Layout>
             }
           />
