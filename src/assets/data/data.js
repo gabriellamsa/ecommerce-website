@@ -21,61 +21,84 @@ export const menulists = [
   },
 ];
 
+export const categories = [
+  {
+    id: 1,
+    name: "Furniture",
+    slug: "furniture",
+    subcategories: ["Chairs", "Tables", "Cabinets", "Beds", "Sofas"],
+  },
+  {
+    id: 2,
+    name: "Decor",
+    slug: "decor",
+    subcategories: ["Vases", "Wall Art", "Mirrors", "Lighting", "Rugs"],
+  },
+  {
+    id: 3,
+    name: "Kitchen",
+    slug: "kitchen",
+    subcategories: ["Cutlery", "Plates", "Glasses", "Cookware", "Utensils"],
+  },
+  {
+    id: 4,
+    name: "Bathroom",
+    slug: "bathroom",
+    subcategories: ["Towel Racks", "Toothbrush Holders", "Soap Dishes", "Baskets"],
+  },
+];
+
 export const herolist = [
   {
     id: 1,
-    title: "Natural Wooden Products",
+    title: "Natural Wooden Furniture",
     description:
-      "Sell globally in minutes with localized currencies, languages, and experiences in every market.",
+      "Discover our exclusive collection of solid wood furniture, where artisanal tradition meets contemporary design.",
     image: "../images/hero/h1.png",
     price: [
       {
-        color: "red",
-        value: 135.78,
+        color: "Oak",
+        value: 1359.90,
       },
       {
-        color: "yellow",
-        value: 185.27,
+        color: "Pine",
+        value: 1185.90,
       },
       {
-        color: "green",
-        value: 125.62,
+        color: "Cedar",
+        value: 1559.90,
       },
     ],
     color: [
-      { value: "red" },
-      { value: "yellow" },
-      {
-        value: "green",
-      },
+      { value: "Oak", hex: "#8B4513" },
+      { value: "Pine", hex: "#DEB887" },
+      { value: "Cedar", hex: "#A0522D" },
     ],
   },
   {
     id: 2,
-    title: "Explore Wooden Products",
+    title: "Sustainable Decor",
     description:
-      "Sell globally in minutes with localized currencies, languages, and experiences in every market.",
+      "Unique pieces made with certified wood and eco-friendly materials, bringing beauty and environmental consciousness to your home.",
     image: "../images/hero/h2.png",
     price: [
       {
-        color: "red",
-        value: 154.23,
+        color: "Natural",
+        value: 899.90,
       },
       {
-        color: "yellow",
-        value: 123.43,
+        color: "Aged",
+        value: 959.90,
       },
       {
-        color: "green",
-        value: 43.34,
+        color: "Rustic",
+        value: 929.90,
       },
     ],
     color: [
-      { value: "red" },
-      { value: "yellow" },
-      {
-        value: "green",
-      },
+      { value: "Natural", hex: "#D2B48C" },
+      { value: "Aged", hex: "#8B7355" },
+      { value: "Rustic", hex: "#6B4423" },
     ],
   },
 ];
@@ -83,42 +106,94 @@ export const herolist = [
 export const productlists = [
   {
     id: 1,
-    title: "Wooden Single Armchair",
+    title: "Classic Wooden Armchair",
     description:
-      "An elegant, comfortable, and sturdy wooden armchair, perfect for decorating any space.",
+      "An elegant and comfortable armchair, crafted from solid wood with premium finishing and high-quality fabric upholstery.",
+    longDescription: `
+      Enjoy the comfort and elegance of this handcrafted armchair, where every detail has been carefully considered.
+      The solid wood structure ensures exceptional durability, while the ergonomic upholstery
+      provides maximum comfort. Perfect for living rooms, offices, or bedrooms.
+    `,
     images: [
       { image: "../images/product/product1.png" },
       { image: "../images/product/product1.3.png" },
       { image: "../images/product/product1.2.png" },
     ],
+    category: "Furniture",
+    subcategory: "Chairs",
     discount: 10,
-    rating: 2.5,
+    rating: 4.5,
+    reviews: 128,
     featured: true,
+    inStock: true,
+    specifications: {
+      dimensions: {
+        height: "85cm",
+        width: "75cm",
+        depth: "80cm",
+      },
+      weight: "15kg",
+      material: "Solid oak wood",
+      finish: "Natural matte varnish",
+      upholstery: "100% cotton fabric",
+      warranty: "5 years",
+    },
     price: [
-      { color: "red", value: 135.78 },
-      { color: "yellow", value: 185.27 },
-      { color: "green", value: 125.62 },
+      { color: "Oak", value: 2499.90, hex: "#8B4513" },
+      { color: "Mahogany", value: 2699.90, hex: "#800000" },
+      { color: "Walnut", value: 2599.90, hex: "#8B7355" },
     ],
-    color: [{ value: "red" }, { value: "yellow" }, { value: "green" }],
+    color: [
+      { value: "Oak", hex: "#8B4513" },
+      { value: "Mahogany", hex: "#800000" },
+      { value: "Walnut", hex: "#8B7355" },
+    ],
+    tags: ["armchair", "solid wood", "furniture", "living room", "decor"],
   },
   {
     id: 2,
-    title: "Wooden Serving Bowl",
+    title: "Artisanal Wooden Bowl",
     description:
-      "A natural wooden bowl, perfect for serving meals with charm, practicality, and style.",
+      "Hand-carved artisanal bowl made from premium wood, perfect for serving salads or as a decorative piece.",
+    longDescription: `
+      This artisanal bowl is a true work of art, hand-carved by master craftsmen.
+      Each piece is unique, with natural wood patterns that make it special.
+      Ideal for serving salads, fruits, or as a decorative centerpiece.
+    `,
     images: [
       { image: "../images/product/product2.png" },
       { image: "../images/product/product1.3.png" },
       { image: "../images/product/product1.2.png" },
-    ], discount: 15,
-    rating: 4.2,
-    featured: false,
-    price: [
-      { color: "blue", value: 99.99 },
-      { color: "white", value: 120.5 },
-      { color: "brown", value: 85.75 },
     ],
-    color: [{ value: "blue" }, { value: "white" }, { value: "brown" }],
+    category: "Kitchen",
+    subcategory: "Utensils",
+    discount: 15,
+    rating: 4.8,
+    reviews: 89,
+    featured: true,
+    inStock: true,
+    specifications: {
+      dimensions: {
+        diameter: "25cm",
+        height: "12cm",
+      },
+      weight: "0.8kg",
+      material: "Solid teak",
+      finish: "Natural mineral oil",
+      capacity: "2 liters",
+      warranty: "2 years",
+    },
+    price: [
+      { color: "Natural Teak", value: 299.90, hex: "#D2691E" },
+      { color: "Dark Teak", value: 319.90, hex: "#8B4513" },
+      { color: "Bamboo", value: 279.90, hex: "#DEB887" },
+    ],
+    color: [
+      { value: "Natural Teak", hex: "#D2691E" },
+      { value: "Dark Teak", hex: "#8B4513" },
+      { value: "Bamboo", hex: "#DEB887" },
+    ],
+    tags: ["bowl", "wood", "kitchen", "decor", "artisanal"],
   },
   {
     id: 3,
@@ -244,14 +319,50 @@ export const productlists = [
 export const promotionalInfo = [
   {
     id: 1,
-    title: "Free Shipping On All Orders Over $59",
-    description: "Shop & shipment across the whole Europe. Cupcake ipsum dolor sit amet. Soufflé jujubes fruitcake cupcake croissant apple pie jelly-o topping.",
+    title: "Free Shipping on Orders Over $59",
+    description: "We deliver nationwide. Buy now and receive your unique wooden piece with all the care it deserves.",
     image: "../images/promotional/prom1.png",
   },
   {
     id: 2,
-    title: "From $29.05",
-    description: "Organic Skincare for Glowing Complexion. Cupcake ipsum dolor sit amet jelly-o gummi bears wafer I love. I love chocolate dessert cake dessert jelly danish biscuit tart. Gummies tootsie roll liquorice marzipan wafer cake sugar plum.",
+    title: "5-Year Warranty",
+    description: "All our products come with a warranty against manufacturing defects. Your satisfaction is our priority.",
     image: "../images/promotional/prom2.png",
   },
-]
+  {
+    id: 3,
+    title: "Secure Payment",
+    description: "Pay securely using credit card, debit card, or PayPal. Your purchase is protected.",
+    image: "../images/promotional/prom3.png",
+  },
+  {
+    id: 4,
+    title: "Premium Support",
+    description: "Expert support to help you choose the perfect product for your home.",
+    image: "../images/promotional/prom4.png",
+  },
+];
+
+export const filters = {
+  priceRanges: [
+    { id: 1, label: "Up to $100", min: 0, max: 100 },
+    { id: 2, label: "$100 - $500", min: 100, max: 500 },
+    { id: 3, label: "$500 - $1000", min: 500, max: 1000 },
+    { id: 4, label: "$1000 - $2000", min: 1000, max: 2000 },
+    { id: 5, label: "Over $2000", min: 2000, max: null },
+  ],
+  ratings: [
+    { value: 5, label: "5 stars" },
+    { value: 4, label: "4 stars & up" },
+    { value: 3, label: "3 stars & up" },
+    { value: 2, label: "2 stars & up" },
+    { value: 1, label: "1 star & up" },
+  ],
+  sortOptions: [
+    { value: "popular", label: "Most Popular" },
+    { value: "newest", label: "Newest" },
+    { value: "price_asc", label: "Price: Low to High" },
+    { value: "price_desc", label: "Price: High to Low" },
+    { value: "rating", label: "Best Rated" },
+  ],
+};
